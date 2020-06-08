@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Enemies/EnemyBase.gd" type="Script" id=1]
+[ext_resource path="res://data/enemies/sloblin.png" type="Texture" id=2]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource( 1 )
+name = "Sloblin"
+hp = 60
+level = 1
+attack_l = 4
+attack_r = 4
+attack_u = 5
+attack_d = 6
+magic = 0
+defense = 2
+magic_defense = 0
+speed = 1
+xp = 5
+sils = 4
+sprite = ExtResource( 2 )
+h_frames = 3
+v_frames = 1

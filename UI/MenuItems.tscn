@@ -1,0 +1,87 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://data/ui/menu_border.png" type="Texture" id=1]
+[ext_resource path="res://UI/MenuItems.gd" type="Script" id=2]
+[ext_resource path="res://UI/Cursor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UI/8bit_font.tres" type="DynamicFont" id=5]
+
+[sub_resource type="DynamicFontData" id=1]
+antialiased = false
+font_path = "res://data/ui/dogica.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 8
+font_data = SubResource( 1 )
+
+[node name="ItemsMenu" type="NinePatchRect"]
+pause_mode = 2
+anchor_right = 0.875
+anchor_bottom = 0.83
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 1 )
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Items" type="Control" parent="."]
+margin_left = 5.0
+margin_top = 6.0
+margin_right = 315.0
+margin_bottom = 235.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemListLabel" type="Label" parent="Items"]
+margin_left = 17.0
+margin_top = 4.0
+margin_right = 305.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "sample"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Description" type="NinePatchRect" parent="Items"]
+anchor_left = 0.004
+anchor_top = 0.773
+anchor_right = 1.0
+anchor_bottom = 0.991
+margin_left = -0.984
+margin_top = -0.0170135
+margin_bottom = 0.0609894
+grow_vertical = 0
+texture = ExtResource( 1 )
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Items/Description"]
+margin_left = 5.0
+margin_top = 6.0
+margin_right = 303.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "This is the place where descriptions can go."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cursor" parent="." instance=ExtResource( 4 )]
+position = Vector2( 12, 11 )
+scale = Vector2( 1.15, 1.15 )

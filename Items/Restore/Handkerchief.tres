@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Items/ItemBase.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "Handkerchief"
+description = "A nice soft handkerchief.
+Restores 100 HP."
+price = 400
+hp = 100
+mp = 0
+affects_all = false
+revive = false
+permanent = false

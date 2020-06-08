@@ -1,0 +1,862 @@
+[gd_scene load_steps=33 format=2]
+
+[ext_resource path="res://data/tiles/overworld_tiles.png" type="Texture" id=1]
+[ext_resource path="res://Maps/Battle.gd" type="Script" id=2]
+[ext_resource path="res://data/ui/battle_0.png" type="Texture" id=3]
+[ext_resource path="res://UI/BattleMenu.gd" type="Script" id=4]
+[ext_resource path="res://data/ui/battle_2.png" type="Texture" id=5]
+[ext_resource path="res://data/ui/battle_3.png" type="Texture" id=6]
+[ext_resource path="res://data/ui/battle_1.png" type="Texture" id=7]
+[ext_resource path="res://Maps/BattleUI.gd" type="Script" id=8]
+[ext_resource path="res://Maps/AttackMenu.gd" type="Script" id=9]
+[ext_resource path="res://data/music/evilland.ogg" type="AudioStream" id=10]
+[ext_resource path="res://data/ui/menu_border.png" type="Texture" id=11]
+[ext_resource path="res://Battle/BattleWon.gd" type="Script" id=12]
+[ext_resource path="res://Battle/Stats.gd" type="Script" id=13]
+[ext_resource path="res://UI/Cursor.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Battle/ItemsMenu.gd" type="Script" id=15]
+[ext_resource path="res://Battle/NewCombo.gd" type="Script" id=16]
+
+[sub_resource type="TileSet" id=1]
+0/name = "overworld_tiles.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 448, 448 )
+0/tile_mode = 2
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 32, 32 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[sub_resource type="TileSet" id=2]
+0/name = "overworld_tiles.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 160, 64, 32, 32 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "overworld_tiles.png 1"
+1/texture = ExtResource( 1 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 160, 96, 32, 32 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+2/name = "overworld_tiles.png 2"
+2/texture = ExtResource( 1 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 192, 96, 32, 32 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+3/name = "overworld_tiles.png 3"
+3/texture = ExtResource( 1 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 352, 96, 32, 32 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape_one_way = false
+3/shape_one_way_margin = 0.0
+3/shapes = [  ]
+3/z_index = 0
+4/name = "overworld_tiles.png 4"
+4/texture = ExtResource( 1 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 288, 352, 32, 32 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape_one_way = false
+4/shape_one_way_margin = 0.0
+4/shapes = [  ]
+4/z_index = 0
+5/name = "overworld_tiles.png 5"
+5/texture = ExtResource( 1 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 320, 384, 32, 32 )
+5/tile_mode = 0
+5/occluder_offset = Vector2( 0, 0 )
+5/navigation_offset = Vector2( 0, 0 )
+5/shape_offset = Vector2( 0, 0 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+5/shape_one_way = false
+5/shape_one_way_margin = 0.0
+5/shapes = [  ]
+5/z_index = 0
+6/name = "overworld_tiles.png 6"
+6/texture = ExtResource( 1 )
+6/tex_offset = Vector2( 0, 0 )
+6/modulate = Color( 1, 1, 1, 1 )
+6/region = Rect2( 160, 224, 32, 32 )
+6/tile_mode = 0
+6/occluder_offset = Vector2( 0, 0 )
+6/navigation_offset = Vector2( 0, 0 )
+6/shape_offset = Vector2( 0, 0 )
+6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+6/shape_one_way = false
+6/shape_one_way_margin = 0.0
+6/shapes = [  ]
+6/z_index = 0
+7/name = "overworld_tiles.png 7"
+7/texture = ExtResource( 1 )
+7/tex_offset = Vector2( 0, 0 )
+7/modulate = Color( 1, 1, 1, 1 )
+7/region = Rect2( 160, 384, 32, 32 )
+7/tile_mode = 0
+7/occluder_offset = Vector2( 0, 0 )
+7/navigation_offset = Vector2( 0, 0 )
+7/shape_offset = Vector2( 0, 0 )
+7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+7/shape_one_way = false
+7/shape_one_way_margin = 0.0
+7/shapes = [  ]
+7/z_index = 0
+8/name = "overworld_tiles.png 8"
+8/texture = ExtResource( 1 )
+8/tex_offset = Vector2( 0, 0 )
+8/modulate = Color( 1, 1, 1, 1 )
+8/region = Rect2( 160, 416, 32, 32 )
+8/tile_mode = 0
+8/occluder_offset = Vector2( 0, 0 )
+8/navigation_offset = Vector2( 0, 0 )
+8/shape_offset = Vector2( 0, 0 )
+8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+8/shape_one_way = false
+8/shape_one_way_margin = 0.0
+8/shapes = [  ]
+8/z_index = 0
+9/name = "overworld_tiles.png 9"
+9/texture = ExtResource( 1 )
+9/tex_offset = Vector2( 0, 0 )
+9/modulate = Color( 1, 1, 1, 1 )
+9/region = Rect2( 288, 384, 32, 32 )
+9/tile_mode = 0
+9/occluder_offset = Vector2( 0, 0 )
+9/navigation_offset = Vector2( 0, 0 )
+9/shape_offset = Vector2( 0, 0 )
+9/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+9/shape_one_way = false
+9/shape_one_way_margin = 0.0
+9/shapes = [  ]
+9/z_index = 0
+10/name = "overworld_tiles.png 10"
+10/texture = ExtResource( 1 )
+10/tex_offset = Vector2( 0, 0 )
+10/modulate = Color( 1, 1, 1, 1 )
+10/region = Rect2( 320, 416, 32, 32 )
+10/tile_mode = 0
+10/occluder_offset = Vector2( 0, 0 )
+10/navigation_offset = Vector2( 0, 0 )
+10/shape_offset = Vector2( 0, 0 )
+10/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+10/shape_one_way = false
+10/shape_one_way_margin = 0.0
+10/shapes = [  ]
+10/z_index = 0
+11/name = "overworld_tiles.png 11"
+11/texture = ExtResource( 1 )
+11/tex_offset = Vector2( 0, 0 )
+11/modulate = Color( 1, 1, 1, 1 )
+11/region = Rect2( 288, 192, 32, 32 )
+11/tile_mode = 0
+11/occluder_offset = Vector2( 0, 0 )
+11/navigation_offset = Vector2( 0, 0 )
+11/shape_offset = Vector2( 0, 0 )
+11/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+11/shape_one_way = false
+11/shape_one_way_margin = 0.0
+11/shapes = [  ]
+11/z_index = 0
+12/name = "overworld_tiles.png 12"
+12/texture = ExtResource( 1 )
+12/tex_offset = Vector2( 0, 0 )
+12/modulate = Color( 1, 1, 1, 1 )
+12/region = Rect2( 224, 0, 32, 32 )
+12/tile_mode = 0
+12/occluder_offset = Vector2( 0, 0 )
+12/navigation_offset = Vector2( 0, 0 )
+12/shape_offset = Vector2( 0, 0 )
+12/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+12/shape_one_way = false
+12/shape_one_way_margin = 0.0
+12/shapes = [  ]
+12/z_index = 0
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0.631373, 0.737255, 1, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.117647, 0.301961, 0.760784, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+anti_aliasing = false
+
+[sub_resource type="DynamicFontData" id=3]
+antialiased = false
+font_path = "res://data/ui/dogica.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+font_data = SubResource( 3 )
+
+[sub_resource type="DynamicFontData" id=5]
+antialiased = false
+font_path = "res://data/ui/dogica.ttf"
+
+[sub_resource type="DynamicFont" id=6]
+size = 10
+font_data = SubResource( 5 )
+
+[sub_resource type="DynamicFontData" id=7]
+antialiased = false
+font_path = "res://data/ui/dogica.ttf"
+
+[sub_resource type="DynamicFont" id=8]
+size = 8
+font_data = SubResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+content_margin_left = 12.0
+content_margin_right = 3.0
+content_margin_top = 4.0
+content_margin_bottom = 3.0
+bg_color = Color( 0.964706, 0.866667, 0.866667, 0.909804 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.878431, 0.294118, 0.294118, 1 )
+corner_radius_top_left = 3
+corner_radius_bottom_right = 3
+corner_detail = 20
+anti_aliasing = false
+
+[sub_resource type="DynamicFontData" id=10]
+antialiased = false
+hinting = 0
+font_path = "res://data/ui/dogica.ttf"
+
+[sub_resource type="DynamicFont" id=11]
+size = 8
+font_data = SubResource( 10 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.964706, 0.866667, 0.866667, 0.466667 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.878431, 0.294118, 0.294118, 1 )
+
+[sub_resource type="StyleBoxFlat" id=14]
+bg_color = Color( 1, 0.447059, 0.447059, 1 )
+border_width_top = 4
+border_width_bottom = 4
+border_color = Color( 0.792157, 0.141176, 0.141176, 1 )
+anti_aliasing = false
+
+[sub_resource type="DynamicFontData" id=15]
+antialiased = false
+hinting = 0
+font_path = "res://data/ui/dogica.ttf"
+
+[sub_resource type="DynamicFont" id=16]
+size = 22
+font_data = SubResource( 15 )
+
+[node name="Battle" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="GroundTileMap" type="TileMap" parent="."]
+tile_set = SubResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 131084, 1, 0, 131084, 2, 0, 131084, 3, 0, 131084, 4, 0, 131084, 5, 0, 131084, 6, 0, 131084, 7, 0, 131084, 8, 0, 131084, 9, 0, 131084, 65536, 0, 131084, 65537, 0, 131084, 65538, 0, 131084, 65539, 0, 131084, 65540, 0, 131084, 65541, 0, 131084, 65542, 0, 131084, 65543, 0, 131084, 65544, 0, 131084, 65545, 0, 131084, 131072, 0, 131084, 131073, 0, 131084, 131074, 0, 131084, 131075, 0, 131084, 131076, 0, 131084, 131077, 0, 131084, 131078, 0, 131084, 131079, 0, 131084, 131080, 0, 131084, 131081, 0, 131084, 196608, 0, 131084, 196609, 0, 131084, 196610, 0, 131084, 196611, 0, 131084, 196612, 0, 131084, 196613, 0, 131084, 196614, 0, 131084, 196615, 0, 131084, 196616, 0, 131084, 196617, 0, 131084, 262144, 0, 131084, 262145, 0, 131084, 262146, 0, 131084, 262147, 0, 131084, 262148, 0, 131084, 262149, 0, 131084, 262150, 0, 131084, 262151, 0, 131084, 262152, 0, 131084, 262153, 0, 131084, 327680, 0, 131084, 327681, 0, 131084, 327682, 0, 131084, 327683, 0, 131084, 327684, 0, 131084, 327685, 0, 131084, 327686, 0, 131084, 327687, 0, 131084, 327688, 0, 131084, 327689, 0, 131084, 393216, 0, 131084, 393217, 0, 131084, 393218, 0, 131084, 393219, 0, 131084, 393220, 0, 131084, 393221, 0, 131084, 393222, 0, 131084, 393223, 0, 131084, 393224, 0, 131084, 393225, 0, 131084, 458752, 0, 131084, 458753, 0, 131084, 458754, 0, 131084, 458755, 0, 131084, 458756, 0, 131084, 458757, 0, 131084, 458758, 0, 131084, 458759, 0, 131084, 458760, 0, 131084, 458761, 0, 131084 )
+
+[node name="ObjectsTileMap" type="TileMap" parent="."]
+tile_set = SubResource( 2 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 2, 9, 0, 3, 9, 0, 7, 6, 0, 8, 1, 0, 65545, 5, 0, 262144, 4, 0, 393217, 4, 0, 393220, 10, 0, 458752, 4, 0, 458753, 4, 0, 458758, 5, 0, 458759, 5, 0, 458761, 5, 0 )
+
+[node name="BattleUI" type="CanvasLayer" parent="."]
+script = ExtResource( 8 )
+
+[node name="BattleMenu" type="Control" parent="BattleUI"]
+anchor_right = 1.0
+anchor_bottom = 1.004
+margin_right = -1.0
+margin_bottom = 0.039978
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MagicRect" type="ColorRect" parent="BattleUI/BattleMenu"]
+margin_left = 169.0
+margin_top = 144.0
+margin_right = 187.0
+margin_bottom = 164.0
+color = Color( 0.898039, 0.639216, 0.639216, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AttackRect" type="ColorRect" parent="BattleUI/BattleMenu"]
+margin_left = 134.0
+margin_top = 144.0
+margin_right = 152.0
+margin_bottom = 164.0
+color = Color( 0.898039, 0.639216, 0.639216, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemRect" type="ColorRect" parent="BattleUI/BattleMenu"]
+margin_left = 150.0
+margin_top = 128.0
+margin_right = 170.0
+margin_bottom = 148.0
+rect_pivot_offset = Vector2( 14, 44 )
+color = Color( 0.898039, 0.639216, 0.639216, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpiritRect" type="ColorRect" parent="BattleUI/BattleMenu"]
+margin_left = 150.0
+margin_top = 161.0
+margin_right = 170.0
+margin_bottom = 180.0
+rect_pivot_offset = Vector2( 14, 44 )
+color = Color( 0.898039, 0.639216, 0.639216, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemButton" type="Sprite" parent="BattleUI/BattleMenu"]
+position = Vector2( 160, 138 )
+texture = ExtResource( 7 )
+
+[node name="SpiritButton" type="Sprite" parent="BattleUI/BattleMenu"]
+position = Vector2( 159, 169 )
+scale = Vector2( 1.67647, 1.67647 )
+texture = ExtResource( 5 )
+
+[node name="AttackButton" type="Sprite" parent="BattleUI/BattleMenu"]
+position = Vector2( 142, 154 )
+texture = ExtResource( 6 )
+
+[node name="MagicButton" type="Sprite" parent="BattleUI/BattleMenu"]
+position = Vector2( 178, 154 )
+scale = Vector2( 1.14706, 1.14706 )
+texture = ExtResource( 3 )
+
+[node name="AttackMenu" type="Control" parent="BattleUI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 145.0
+margin_bottom = -77.0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AttackContainer" type="PanelContainer" parent="BattleUI/AttackMenu"]
+anchor_right = 1.0
+anchor_bottom = 2.969
+margin_left = 119.0
+margin_right = -120.0
+margin_bottom = -35.442
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BattleWon" type="Control" parent="BattleUI"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="BattleUI/BattleWon"]
+anchor_right = 7.971
+anchor_bottom = 5.986
+margin_left = 7.0
+margin_top = 8.0
+margin_right = -5.84
+margin_bottom = -6.44
+texture = ExtResource( 11 )
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BattleUI/BattleWon/NinePatchRect"]
+anchor_right = 0.984
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 6.0
+margin_right = -0.104004
+margin_bottom = -10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="BattleUI/BattleWon/NinePatchRect/VBoxContainer"]
+margin_right = 297.0
+margin_bottom = 12.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Battle won!"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BattleUI/BattleWon/NinePatchRect/VBoxContainer"]
+margin_top = 16.0
+margin_right = 297.0
+margin_bottom = 24.0
+alignment = 1
+
+[node name="XPLabel" type="Label" parent="BattleUI/BattleWon/NinePatchRect/VBoxContainer/HBoxContainer"]
+margin_left = 86.0
+margin_right = 116.0
+margin_bottom = 8.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "500"
+align = 2
+
+[node name="Label3" type="Label" parent="BattleUI/BattleWon/NinePatchRect/VBoxContainer/HBoxContainer"]
+margin_left = 120.0
+margin_right = 210.0
+margin_bottom = 8.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "XP gained"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BattleUI/BattleWon/NinePatchRect/VBoxContainer"]
+margin_top = 28.0
+margin_right = 297.0
+margin_bottom = 36.0
+alignment = 1
+
+[node name="SilLabel" type="Label" parent="BattleUI/BattleWon/NinePatchRect/VBoxContainer/HBoxContainer2"]
+margin_left = 111.0
+margin_right = 141.0
+margin_bottom = 8.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "500"
+align = 2
+
+[node name="Label3" type="Label" parent="BattleUI/BattleWon/NinePatchRect/VBoxContainer/HBoxContainer2"]
+margin_left = 145.0
+margin_right = 185.0
+margin_bottom = 8.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "sils"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="BattleUI/BattleWon/NinePatchRect/VBoxContainer"]
+margin_top = 40.0
+margin_right = 297.0
+margin_bottom = 93.0
+size_flags_vertical = 3
+alignment = 1
+
+[node name="XPLeftLabel" type="Label" parent="BattleUI/BattleWon/NinePatchRect/VBoxContainer/HBoxContainer3"]
+margin_left = 54.0
+margin_top = 22.0
+margin_right = 84.0
+margin_bottom = 30.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "500"
+align = 2
+
+[node name="Label3" type="Label" parent="BattleUI/BattleWon/NinePatchRect/VBoxContainer/HBoxContainer3"]
+margin_left = 88.0
+margin_top = 22.0
+margin_right = 228.0
+margin_bottom = 30.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "XP until level"
+
+[node name="NextLevelLabel" type="Label" parent="BattleUI/BattleWon/NinePatchRect/VBoxContainer/HBoxContainer3"]
+margin_left = 232.0
+margin_top = 22.0
+margin_right = 242.0
+margin_bottom = 30.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "6"
+align = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="BattleUI/BattleWon/NinePatchRect/VBoxContainer"]
+margin_top = 97.0
+margin_right = 297.0
+margin_bottom = 150.0
+size_flags_vertical = 3
+
+[node name="LevelUpContainer" type="VBoxContainer" parent="BattleUI/BattleWon/NinePatchRect/VBoxContainer"]
+margin_top = 154.0
+margin_right = 297.0
+margin_bottom = 209.0
+size_flags_vertical = 3
+
+[node name="LevelUpLabel" type="Label" parent="BattleUI/BattleWon/NinePatchRect/VBoxContainer/LevelUpContainer"]
+margin_top = 8.0
+margin_right = 297.0
+margin_bottom = 16.0
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Level Up!"
+align = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="BattleUI/BattleWon/NinePatchRect/VBoxContainer/LevelUpContainer"]
+margin_top = 29.0
+margin_right = 297.0
+margin_bottom = 55.0
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Label3" type="Label" parent="BattleUI/BattleWon/NinePatchRect/VBoxContainer/LevelUpContainer/HBoxContainer4"]
+margin_left = 41.0
+margin_top = 9.0
+margin_right = 241.0
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "You are now at level"
+
+[node name="LevelLabel" type="Label" parent="BattleUI/BattleWon/NinePatchRect/VBoxContainer/LevelUpContainer/HBoxContainer4"]
+margin_left = 245.0
+margin_top = 9.0
+margin_right = 255.0
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "5"
+align = 2
+
+[node name="Stats" type="Control" parent="BattleUI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1.0
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BattleUI/Stats"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 103.0
+margin_top = 197.0
+margin_right = -103.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BattleUI/Stats/HBoxContainer"]
+margin_right = 115.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="BattleUI/Stats/HBoxContainer/VBoxContainer"]
+margin_right = 115.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.6
+texture = ExtResource( 11 )
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="NameContainer" type="HBoxContainer" parent="BattleUI/Stats/HBoxContainer/VBoxContainer/NinePatchRect"]
+anchor_right = 1.0
+anchor_bottom = 0.75
+margin_bottom = 3.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameLabel" type="Label" parent="BattleUI/Stats/HBoxContainer/VBoxContainer/NinePatchRect/NameContainer"]
+margin_left = 25.0
+margin_top = 4.0
+margin_right = 57.0
+margin_bottom = 10.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Yuji"
+
+[node name="Label" type="Label" parent="BattleUI/Stats/HBoxContainer/VBoxContainer/NinePatchRect/NameContainer"]
+margin_left = 61.0
+margin_top = 4.0
+margin_right = 77.0
+margin_bottom = 10.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "LV"
+
+[node name="LevelLabel" type="Label" parent="BattleUI/Stats/HBoxContainer/VBoxContainer/NinePatchRect/NameContainer"]
+margin_left = 81.0
+margin_top = 4.0
+margin_right = 89.0
+margin_bottom = 10.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "3"
+
+[node name="StatsContainer" type="NinePatchRect" parent="BattleUI/Stats/HBoxContainer/VBoxContainer"]
+margin_top = 16.0
+margin_right = 115.0
+margin_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 11 )
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BattleUI/Stats/HBoxContainer/VBoxContainer/StatsContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -20.0
+margin_bottom = -3.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HPContainer" type="HBoxContainer" parent="BattleUI/Stats/HBoxContainer/VBoxContainer/StatsContainer/VBoxContainer"]
+margin_right = 108.0
+margin_bottom = 6.0
+
+[node name="Label" type="Label" parent="BattleUI/Stats/HBoxContainer/VBoxContainer/StatsContainer/VBoxContainer/HPContainer"]
+margin_right = 24.0
+margin_bottom = 6.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "HP:"
+
+[node name="HPLabel" type="Label" parent="BattleUI/Stats/HBoxContainer/VBoxContainer/StatsContainer/VBoxContainer/HPContainer"]
+margin_left = 28.0
+margin_right = 60.0
+margin_bottom = 6.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "9999"
+align = 2
+
+[node name="Label2" type="Label" parent="BattleUI/Stats/HBoxContainer/VBoxContainer/StatsContainer/VBoxContainer/HPContainer"]
+margin_left = 64.0
+margin_right = 72.0
+margin_bottom = 6.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "/"
+
+[node name="MaxHPLabel" type="Label" parent="BattleUI/Stats/HBoxContainer/VBoxContainer/StatsContainer/VBoxContainer/HPContainer"]
+margin_left = 76.0
+margin_right = 108.0
+margin_bottom = 6.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "9999"
+
+[node name="MPContainer" type="HBoxContainer" parent="BattleUI/Stats/HBoxContainer/VBoxContainer/StatsContainer/VBoxContainer"]
+margin_top = 10.0
+margin_right = 108.0
+margin_bottom = 16.0
+
+[node name="Label" type="Label" parent="BattleUI/Stats/HBoxContainer/VBoxContainer/StatsContainer/VBoxContainer/MPContainer"]
+margin_right = 24.0
+margin_bottom = 6.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "MP:"
+
+[node name="MPLabel" type="Label" parent="BattleUI/Stats/HBoxContainer/VBoxContainer/StatsContainer/VBoxContainer/MPContainer"]
+margin_left = 28.0
+margin_right = 60.0
+margin_bottom = 6.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "30"
+align = 2
+
+[node name="Label2" type="Label" parent="BattleUI/Stats/HBoxContainer/VBoxContainer/StatsContainer/VBoxContainer/MPContainer"]
+margin_left = 64.0
+margin_right = 72.0
+margin_bottom = 6.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "/"
+
+[node name="MaxMPLabel" type="Label" parent="BattleUI/Stats/HBoxContainer/VBoxContainer/StatsContainer/VBoxContainer/MPContainer"]
+margin_left = 76.0
+margin_right = 108.0
+margin_bottom = 6.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "999"
+
+[node name="ItemsMenu" type="PanelContainer" parent="BattleUI"]
+anchor_right = 0.587
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 3.0
+margin_right = 4.16
+margin_bottom = -3.0
+custom_styles/panel = SubResource( 9 )
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="BattleUI/ItemsMenu"]
+margin_left = 12.0
+margin_top = 4.0
+margin_right = 188.0
+margin_bottom = 231.0
+
+[node name="ItemsListLabel" type="Label" parent="BattleUI/ItemsMenu/Control"]
+margin_right = 171.0
+margin_bottom = 182.0
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 11 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "arst"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemDescriptionContainer" type="PanelContainer" parent="BattleUI/ItemsMenu/Control"]
+margin_left = -12.0
+margin_top = 184.0
+margin_right = 179.0
+margin_bottom = 230.0
+size_flags_horizontal = 3
+custom_styles/panel = SubResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemDescriptionLabel" type="Label" parent="BattleUI/ItemsMenu/Control/ItemDescriptionContainer"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 189.0
+margin_bottom = 44.0
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 11 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "arst"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cursor" parent="BattleUI/ItemsMenu" instance=ExtResource( 14 )]
+position = Vector2( 6, 8 )
+
+[node name="NewCombo" type="PanelContainer" parent="BattleUI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 115.0
+margin_bottom = -85.0
+custom_styles/panel = SubResource( 14 )
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="BattleUI/NewCombo"]
+margin_top = 11.0
+margin_right = 320.0
+margin_bottom = 29.0
+custom_fonts/font = SubResource( 16 )
+text = "New Combo!"
+align = 1
+
+[node name="Tween" type="Tween" parent="BattleUI/NewCombo"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+autoplay = true

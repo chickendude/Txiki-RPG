@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Items/ItemBase.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "Tissue"
+description = "A thin tissue.
+Restores 20 health"
+price = 100
+hp = 20
+mp = 0
+affects_all = false
+revive = false
+permanent = false

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Enemies/EnemyBase.gd" type="Script" id=1]
+[ext_resource path="res://data/enemies/streaker.png" type="Texture" id=2]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource( 1 )
+name = "Streaker"
+hp = 18
+level = 2
+attack_l = 6
+attack_r = 5
+attack_u = 8
+attack_d = 10
+magic = 0
+defense = 0
+magic_defense = 0
+speed = 0
+xp = 15
+sils = 15
+sprite = ExtResource( 2 )
+h_frames = 3
+v_frames = 1

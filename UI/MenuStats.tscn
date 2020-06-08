@@ -1,0 +1,374 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://data/ui/menu_border.png" type="Texture" id=1]
+[ext_resource path="res://UI/MenuStats.gd" type="Script" id=2]
+[ext_resource path="res://data/characters/yuji.png" type="Texture" id=3]
+[ext_resource path="res://UI/Cursor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UI/8bit_font.tres" type="DynamicFont" id=5]
+
+[sub_resource type="DynamicFontData" id=1]
+antialiased = false
+hinting = 0
+font_path = "res://data/ui/dogica.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 15
+font_data = SubResource( 1 )
+
+[node name="StatsMenu" type="NinePatchRect"]
+pause_mode = 2
+anchor_right = 0.875
+anchor_bottom = 0.83
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 1 )
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Characters" type="GridContainer" parent="."]
+anchor_top = 0.025
+anchor_right = 0.987
+anchor_bottom = 0.987
+margin_left = 5.0
+margin_top = 0.02
+margin_right = 0.159973
+margin_bottom = -0.0904083
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Characters"]
+margin_right = 60.0
+margin_bottom = 229.0
+size_flags_vertical = 3
+custom_constants/margin_right = 60
+
+[node name="Yuji" type="Sprite" parent="Characters/MarginContainer"]
+position = Vector2( 0, -2 )
+scale = Vector2( 3.1875, 3.1875 )
+texture = ExtResource( 3 )
+centered = false
+vframes = 3
+hframes = 4
+frame = 1
+
+[node name="Stats" type="Control" parent="Characters"]
+margin_left = 64.0
+margin_right = 310.0
+margin_bottom = 229.0
+size_flags_horizontal = 3
+
+[node name="StatsVbox" type="VBoxContainer" parent="Characters/Stats"]
+margin_right = 246.0
+margin_bottom = 229.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Characters/Stats/StatsVbox"]
+margin_right = 246.0
+margin_bottom = 13.0
+
+[node name="NameLabel" type="Label" parent="Characters/Stats/StatsVbox/HBoxContainer"]
+margin_right = 60.0
+margin_bottom = 13.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Yuji"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Characters/Stats/StatsVbox/HBoxContainer"]
+margin_left = 64.0
+margin_right = 94.0
+margin_bottom = 13.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "LV"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelLabel" type="Label" parent="Characters/Stats/StatsVbox/HBoxContainer"]
+margin_left = 98.0
+margin_right = 128.0
+margin_bottom = 13.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "98"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Characters/Stats/StatsVbox"]
+margin_top = 17.0
+margin_right = 246.0
+margin_bottom = 175.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="BasicStatsContainer" type="VBoxContainer" parent="Characters/Stats/StatsVbox/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 241.0
+margin_bottom = 153.0
+custom_constants/separation = 7
+
+[node name="HPContainer" type="HBoxContainer" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer"]
+margin_right = 236.0
+margin_bottom = 10.0
+
+[node name="Label" type="Label" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer/HPContainer"]
+margin_right = 36.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "HP:"
+
+[node name="CurHPLabel" type="Label" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer/HPContainer"]
+margin_left = 40.0
+margin_right = 64.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "50"
+
+[node name="Label2" type="Label" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer/HPContainer"]
+margin_left = 68.0
+margin_right = 80.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "/"
+
+[node name="MaxHPLabel" type="Label" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer/HPContainer"]
+margin_left = 84.0
+margin_right = 120.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "999"
+
+[node name="MPContainer" type="HBoxContainer" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer"]
+margin_top = 17.0
+margin_right = 236.0
+margin_bottom = 27.0
+
+[node name="Label" type="Label" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer/MPContainer"]
+margin_right = 36.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "MP:"
+
+[node name="CurMPLabel" type="Label" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer/MPContainer"]
+margin_left = 40.0
+margin_right = 64.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "50"
+
+[node name="Label2" type="Label" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer/MPContainer"]
+margin_left = 68.0
+margin_right = 80.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "/"
+
+[node name="MaxMPLabel" type="Label" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer/MPContainer"]
+margin_left = 84.0
+margin_right = 120.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "999"
+
+[node name="DetailedStatsContainer" type="VBoxContainer" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer"]
+margin_top = 34.0
+margin_right = 236.0
+margin_bottom = 114.0
+
+[node name="ATKL" type="HBoxContainer" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer/DetailedStatsContainer"]
+margin_right = 236.0
+margin_bottom = 10.0
+
+[node name="Label" type="Label" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer/DetailedStatsContainer/ATKL"]
+margin_right = 60.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "ATKL:"
+
+[node name="ATKLLabel" type="Label" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer/DetailedStatsContainer/ATKL"]
+margin_left = 64.0
+margin_right = 88.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "50"
+
+[node name="ATKR" type="HBoxContainer" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer/DetailedStatsContainer"]
+margin_top = 14.0
+margin_right = 236.0
+margin_bottom = 24.0
+
+[node name="Label" type="Label" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer/DetailedStatsContainer/ATKR"]
+margin_right = 60.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "ATKR:"
+
+[node name="ATKRLabel" type="Label" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer/DetailedStatsContainer/ATKR"]
+margin_left = 64.0
+margin_right = 88.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "50"
+
+[node name="ATKU" type="HBoxContainer" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer/DetailedStatsContainer"]
+margin_top = 28.0
+margin_right = 236.0
+margin_bottom = 38.0
+
+[node name="Label" type="Label" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer/DetailedStatsContainer/ATKU"]
+margin_right = 60.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "ATKU:"
+
+[node name="ATKULabel" type="Label" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer/DetailedStatsContainer/ATKU"]
+margin_left = 64.0
+margin_right = 88.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "50"
+
+[node name="ATKD" type="HBoxContainer" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer/DetailedStatsContainer"]
+margin_top = 42.0
+margin_right = 236.0
+margin_bottom = 52.0
+
+[node name="Label" type="Label" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer/DetailedStatsContainer/ATKD"]
+margin_right = 60.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "ATKD:"
+
+[node name="ATKDLabel" type="Label" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer/DetailedStatsContainer/ATKD"]
+margin_left = 64.0
+margin_right = 88.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "50"
+
+[node name="DEF" type="HBoxContainer" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer/DetailedStatsContainer"]
+margin_top = 56.0
+margin_right = 236.0
+margin_bottom = 66.0
+
+[node name="Label" type="Label" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer/DetailedStatsContainer/DEF"]
+margin_right = 48.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "DEF:"
+
+[node name="DefLabel" type="Label" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer/DetailedStatsContainer/DEF"]
+margin_left = 52.0
+margin_right = 76.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "50"
+
+[node name="SPD" type="HBoxContainer" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer/DetailedStatsContainer"]
+margin_top = 70.0
+margin_right = 236.0
+margin_bottom = 80.0
+
+[node name="Label" type="Label" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer/DetailedStatsContainer/SPD"]
+margin_right = 48.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "SPD:"
+
+[node name="SpeedLabel" type="Label" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer/DetailedStatsContainer/SPD"]
+margin_left = 52.0
+margin_right = 76.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "50"
+
+[node name="XPContainer" type="HBoxContainer" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer"]
+margin_top = 121.0
+margin_right = 236.0
+margin_bottom = 131.0
+
+[node name="XPLeftLabel" type="Label" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer/XPContainer"]
+margin_right = 24.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "50"
+
+[node name="Label3" type="Label" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer/XPContainer"]
+margin_left = 28.0
+margin_right = 136.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "exp to LV"
+
+[node name="NextLevelLabel" type="Label" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer/XPContainer"]
+margin_left = 140.0
+margin_right = 164.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "99"
+
+[node name="SilsContainer" type="HBoxContainer" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer"]
+margin_top = 138.0
+margin_right = 236.0
+margin_bottom = 148.0
+
+[node name="SilsLabel" type="Label" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer/SilsContainer"]
+margin_right = 36.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "607"
+
+[node name="Label3" type="Label" parent="Characters/Stats/StatsVbox/MarginContainer/BasicStatsContainer/SilsContainer"]
+margin_left = 40.0
+margin_right = 88.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "sils"
+
+[node name="Cursor" parent="." instance=ExtResource( 4 )]
+position = Vector2( 12, 11 )
+scale = Vector2( 1.15, 1.15 )

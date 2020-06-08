@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UI/FadeEffect.gd" type="Script" id=1]
+
+[node name="FadeEffect" type="CanvasLayer"]
+pause_mode = 2
+layer = 11
+script = ExtResource( 1 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color( 0, 0, 0, 0 )
+margin_right = 340.0
+margin_bottom = 259.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

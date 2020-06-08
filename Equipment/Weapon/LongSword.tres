@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Equipment/BaseStats.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "Long Sword"
+description = "Enemies won't even be able to touch me!"
+attack = 28
+defense = 0
+magic = 0
+magic_defense = 0
+speed = 0
+price = 0

@@ -1,0 +1,9 @@
+[gd_scene format=2]
+
+[node name="Camera2D" type="Camera2D"]
+position = Vector2( 459, 620 )
+current = true
+limit_left = -8
+limit_top = -8
+limit_smoothed = true
+smoothing_enabled = true

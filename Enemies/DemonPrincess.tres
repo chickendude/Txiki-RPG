@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Enemies/EnemyBase.gd" type="Script" id=1]
+[ext_resource path="res://data/enemies/demon_princess.png" type="Texture" id=2]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource( 1 )
+name = "Demon Princess"
+hp = 100
+level = 3
+attack_l = 10
+attack_r = 10
+attack_u = 12
+attack_d = 8
+magic = 0
+defense = 9
+magic_defense = 0
+speed = 0
+xp = 30
+sils = 20
+sprite = ExtResource( 2 )
+h_frames = 3
+v_frames = 1

@@ -1,0 +1,248 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://data/ui/menu_border.png" type="Texture" id=1]
+[ext_resource path="res://UI/8bit_font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://data/characters/yuji.png" type="Texture" id=3]
+[ext_resource path="res://UI/MenuEquipment.gd" type="Script" id=4]
+[ext_resource path="res://UI/Cursor.tscn" type="PackedScene" id=5]
+
+[sub_resource type="DynamicFontData" id=1]
+antialiased = false
+hinting = 0
+font_path = "res://data/ui/dogica.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 15
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFontData" id=3]
+antialiased = false
+font_path = "res://data/ui/dogica.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 8
+font_data = SubResource( 3 )
+
+[node name="EquipmentMenu" type="NinePatchRect"]
+pause_mode = 2
+anchor_right = 0.875
+anchor_bottom = 0.83
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 1 )
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Characters" type="GridContainer" parent="."]
+anchor_top = 0.025
+anchor_right = 0.987
+anchor_bottom = 0.987
+margin_left = 5.0
+margin_top = 0.02
+margin_right = 0.159973
+margin_bottom = -0.0904083
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Characters"]
+margin_right = 60.0
+margin_bottom = 229.0
+size_flags_vertical = 3
+custom_constants/margin_right = 60
+
+[node name="Yuji" type="Sprite" parent="Characters/MarginContainer"]
+position = Vector2( 0, -2 )
+scale = Vector2( 3.1875, 3.1875 )
+texture = ExtResource( 3 )
+centered = false
+vframes = 3
+hframes = 4
+frame = 1
+
+[node name="Equipment" type="Control" parent="Characters"]
+margin_left = 64.0
+margin_right = 310.0
+margin_bottom = 229.0
+size_flags_horizontal = 3
+
+[node name="EquipVbox" type="VBoxContainer" parent="Characters/Equipment"]
+visible = false
+margin_right = 246.0
+margin_bottom = 229.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="EquipmentLabel" type="Label" parent="Characters/Equipment/EquipVbox"]
+margin_right = 246.0
+margin_bottom = 13.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Equipment"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Characters/Equipment/EquipVbox"]
+margin_top = 17.0
+margin_right = 246.0
+margin_bottom = 54.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="EquipmentContainer" type="VBoxContainer" parent="Characters/Equipment/EquipVbox/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 241.0
+margin_bottom = 32.0
+custom_constants/separation = 7
+
+[node name="WeaponContainer" type="HBoxContainer" parent="Characters/Equipment/EquipVbox/MarginContainer/EquipmentContainer"]
+margin_right = 236.0
+margin_bottom = 10.0
+
+[node name="Label" type="Label" parent="Characters/Equipment/EquipVbox/MarginContainer/EquipmentContainer/WeaponContainer"]
+margin_right = 48.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "WPN:"
+
+[node name="EquippedWeapon" type="Label" parent="Characters/Equipment/EquipVbox/MarginContainer/EquipmentContainer/WeaponContainer"]
+margin_left = 52.0
+margin_right = 124.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "sample"
+
+[node name="ArmorContainer" type="HBoxContainer" parent="Characters/Equipment/EquipVbox/MarginContainer/EquipmentContainer"]
+margin_top = 17.0
+margin_right = 236.0
+margin_bottom = 27.0
+
+[node name="Label" type="Label" parent="Characters/Equipment/EquipVbox/MarginContainer/EquipmentContainer/ArmorContainer"]
+margin_right = 48.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "ARM:"
+
+[node name="EquippedArmor" type="Label" parent="Characters/Equipment/EquipVbox/MarginContainer/EquipmentContainer/ArmorContainer"]
+margin_left = 52.0
+margin_right = 124.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "sample"
+
+[node name="WeaponVbox" type="VBoxContainer" parent="Characters/Equipment"]
+visible = false
+margin_right = 246.0
+margin_bottom = 229.0
+size_flags_horizontal = 3
+
+[node name="WeaponLabel" type="Label" parent="Characters/Equipment/WeaponVbox"]
+margin_right = 246.0
+margin_bottom = 13.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Weapons"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Characters/Equipment/WeaponVbox"]
+margin_top = 17.0
+margin_right = 246.0
+margin_bottom = 54.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="WeaponListLabel" type="Label" parent="Characters/Equipment/WeaponVbox/MarginContainer"]
+margin_left = 5.0
+margin_top = 13.0
+margin_right = 241.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "sample"
+
+[node name="ArmorVbox" type="VBoxContainer" parent="Characters/Equipment"]
+margin_right = 246.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+
+[node name="ArmorLabel" type="Label" parent="Characters/Equipment/ArmorVbox"]
+margin_right = 246.0
+margin_bottom = 13.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Armor"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Characters/Equipment/ArmorVbox"]
+margin_top = 17.0
+margin_right = 246.0
+margin_bottom = 37.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="ArmorListLabel" type="Label" parent="Characters/Equipment/ArmorVbox/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 241.0
+margin_bottom = 15.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "WPN:"
+
+[node name="Description" type="NinePatchRect" parent="Characters/Equipment"]
+anchor_left = 0.004
+anchor_top = 0.773
+anchor_right = 1.0
+anchor_bottom = 0.991
+margin_left = -0.984
+margin_top = -0.0170135
+margin_bottom = 0.0609894
+grow_vertical = 0
+texture = ExtResource( 1 )
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Characters/Equipment/Description"]
+margin_left = 5.0
+margin_top = 6.0
+margin_right = 241.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "This is the place where descriptions can go."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cursor" parent="." instance=ExtResource( 5 )]
+position = Vector2( 12, 11 )
+scale = Vector2( 1.15, 1.15 )
