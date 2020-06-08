@@ -3,7 +3,6 @@ extends Container
 onready var name_label = $NameLabel
 onready var text_label = $TextLabel
 onready var tween = $Tween
-onready var timer = $Timer
 
 const CHAR_DELAY = .03
 const WIDTH = 37
