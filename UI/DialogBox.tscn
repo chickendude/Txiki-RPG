@@ -82,5 +82,3 @@ text = "hitz batzuk kutxa hau testuz beteta nolakoa den ikusteko. zer moduz zaud
 autowrap = true
 
 [node name="Tween" type="Tween" parent="."]
-
-[node name="Timer" type="Timer" parent="."]

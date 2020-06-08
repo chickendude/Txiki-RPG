@@ -20,13 +20,13 @@ func _ready():
 	var _e = Event.connect("display_text", self, "_display_text")
 
 func _display_text(name, text):
-	for t in _split_text(text):
-		text_queue.append([name, t])
+	for page in _split_text_into_pages(text):
+		text_queue.append([name, page])
 	if not visible:
-		_display_line()
+		_draw_next_page()
 		visible = true
 
-func _split_text(text : String) -> String:
+func _split_text_into_pages(text : String) -> Array:
 	var pages = []
 	var lines = PoolStringArray()
 	var output = ""
@@ -42,7 +42,7 @@ func _split_text(text : String) -> String:
 	pages.append(lines.join('\n'))
 	return pages
 
-func _display_line():
+func _draw_next_page():
 	text_label.visible_characters = 0
 	var dialog = text_queue.pop_front()
 	name_label.text = dialog[0]
@@ -54,11 +54,11 @@ func _input(_event):
 		accept_event()
 		if Input.is_action_just_pressed("ui_accept"):
 			if tween.is_active():
-				tween.stop_all()
+				tween.set_active(false)
 				text_label.visible_characters = -1
 			else:
 				if len(text_queue):
-					_display_line()
+					_draw_next_page()
 				else:
 					visible = false
 
