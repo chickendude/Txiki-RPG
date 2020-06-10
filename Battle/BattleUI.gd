@@ -1,6 +1,5 @@
 extends CanvasLayer
 
-
 const Attack = preload("res://Equipment/Attack.gd")
 
 onready var battle_menu = $BattleMenu
@@ -35,10 +34,7 @@ func _ready() -> void:
 
 func _input(delta) -> void:
 	if not starting_keys_released:
-		starting_keys_released = true
-		for key in ['ui_left', 'ui_up', 'ui_right', 'ui_down']:
-			if Input.is_action_pressed(key):
-				starting_keys_released = false
+		_check_all_keys_released()
 	elif current_menu and current_menu.has_method("input"):
 		current_menu.input(delta)
 
@@ -59,6 +55,14 @@ func set_monsters(_monsters):
 	xp *= (num_monsters * num_monsters - 50) / (num_monsters * num_monsters + 50) + 2
 	# sils gets a bonus of: (num_monsters / 8) + 1
 	sils *= num_monsters / 8 + 1
+
+# internal functions
+
+func _check_all_keys_released():
+	starting_keys_released = true
+	for key in ['ui_left', 'ui_up', 'ui_right', 'ui_down']:
+		if Input.is_action_pressed(key):
+			starting_keys_released = false
 
 # menu functions
 

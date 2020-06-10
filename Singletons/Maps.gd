@@ -3,7 +3,7 @@ extends Node
 class_name Maps
 
 const maps = {
-	"Battle": "res://Maps/Battle.tscn",
+	"Battle": "res://Battle/Battle.tscn",
 	"HouseYuji": "res://Maps/HouseYuji.tscn",
 	"TownYunien": "res://Maps/TownYunien.tscn",
 	"Overworld": "res://Maps/Overworld.tscn",
