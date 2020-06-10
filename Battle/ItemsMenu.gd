@@ -1,9 +1,9 @@
 extends PanelContainer
 
 onready var cursor = $Cursor
-onready var items_list_label = $Control/ItemsListLabel
-onready var description_label = $Control/ItemDescriptionContainer/ItemDescriptionLabel
-onready var description_container = $Control/ItemDescriptionContainer
+onready var items_list_label = $Node2D/ItemsListLabel
+onready var description_label = $Node2D/ItemDescriptionContainer/ItemDescriptionLabel
+onready var description_container = $Node2D/ItemDescriptionContainer
 
 const PopupMenu = preload("res://UI/MenuPopup.tscn")
 const ItemAttack = preload("res://Items/Item.gd")

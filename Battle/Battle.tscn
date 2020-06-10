@@ -288,9 +288,9 @@ font_data = SubResource( 11 )
 [sub_resource type="StyleBoxFlat" id=13]
 bg_color = Color( 0.964706, 0.866667, 0.866667, 0.466667 )
 border_width_left = 2
-border_width_top = 2
+border_width_top = 1
 border_width_right = 2
-border_width_bottom = 2
+border_width_bottom = 1
 border_color = Color( 0.878431, 0.294118, 0.294118, 1 )
 
 [sub_resource type="StyleBoxFlat" id=14]
@@ -791,15 +791,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Control" type="Control" parent="BattleUI/ItemsMenu"]
+[node name="Node2D" type="Node2D" parent="BattleUI/ItemsMenu"]
+
+[node name="ItemsListLabel" type="Label" parent="BattleUI/ItemsMenu/Node2D"]
 margin_left = 12.0
 margin_top = 4.0
-margin_right = 188.0
-margin_bottom = 231.0
-
-[node name="ItemsListLabel" type="Label" parent="BattleUI/ItemsMenu/Control"]
-margin_right = 171.0
-margin_bottom = 182.0
+margin_right = 187.0
+margin_bottom = 193.0
 size_flags_vertical = 7
 custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -808,26 +806,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ItemDescriptionContainer" type="PanelContainer" parent="BattleUI/ItemsMenu/Control"]
-margin_left = -12.0
-margin_top = 184.0
-margin_right = 179.0
-margin_bottom = 230.0
+[node name="ItemDescriptionContainer" type="Node2D" parent="BattleUI/ItemsMenu/Node2D"]
+position = Vector2( 0, -6 )
+
+[node name="ItemDescriptionDivider" type="PanelContainer" parent="BattleUI/ItemsMenu/Node2D/ItemDescriptionContainer"]
+margin_left = 1.0
+margin_top = 198.0
+margin_right = 189.0
+margin_bottom = 200.0
 size_flags_horizontal = 3
 custom_styles/panel = SubResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ItemDescriptionLabel" type="Label" parent="BattleUI/ItemsMenu/Control/ItemDescriptionContainer"]
-margin_left = 2.0
-margin_top = 2.0
-margin_right = 189.0
-margin_bottom = 44.0
+[node name="ItemDescriptionLabel" type="Label" parent="BattleUI/ItemsMenu/Node2D/ItemDescriptionContainer"]
+margin_left = 4.0
+margin_top = 202.0
+margin_right = 187.0
+margin_bottom = 233.0
 size_flags_vertical = 7
 custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "arst"
+text = "lerro 1
+2 lerro
+3 lerro
+4 lerro"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
