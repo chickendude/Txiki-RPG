@@ -224,7 +224,7 @@
 12/shapes = [  ]
 12/z_index = 0
 
-[sub_resource type="StyleBoxFlat" id=13]
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.631373, 0.737255, 1, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -237,30 +237,30 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 anti_aliasing = false
 
-[sub_resource type="DynamicFontData" id=3]
+[sub_resource type="DynamicFontData" id=4]
 antialiased = false
 font_path = "res://data/ui/dogica.ttf"
 
-[sub_resource type="DynamicFont" id=4]
-font_data = SubResource( 3 )
+[sub_resource type="DynamicFont" id=5]
+font_data = SubResource( 4 )
 
-[sub_resource type="DynamicFontData" id=5]
+[sub_resource type="DynamicFontData" id=6]
 antialiased = false
 font_path = "res://data/ui/dogica.ttf"
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=7]
 size = 10
-font_data = SubResource( 5 )
+font_data = SubResource( 6 )
 
-[sub_resource type="DynamicFontData" id=7]
+[sub_resource type="DynamicFontData" id=8]
 antialiased = false
 font_path = "res://data/ui/dogica.ttf"
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=9]
 size = 8
-font_data = SubResource( 7 )
+font_data = SubResource( 8 )
 
-[sub_resource type="StyleBoxFlat" id=9]
+[sub_resource type="StyleBoxFlat" id=10]
 content_margin_left = 12.0
 content_margin_right = 3.0
 content_margin_top = 4.0
@@ -276,16 +276,16 @@ corner_radius_bottom_right = 3
 corner_detail = 20
 anti_aliasing = false
 
-[sub_resource type="DynamicFontData" id=10]
+[sub_resource type="DynamicFontData" id=11]
 antialiased = false
 hinting = 0
 font_path = "res://data/ui/dogica.ttf"
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=12]
 size = 8
-font_data = SubResource( 10 )
+font_data = SubResource( 11 )
 
-[sub_resource type="StyleBoxFlat" id=12]
+[sub_resource type="StyleBoxFlat" id=13]
 bg_color = Color( 0.964706, 0.866667, 0.866667, 0.466667 )
 border_width_left = 2
 border_width_top = 2
@@ -417,7 +417,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/panel = SubResource( 13 )
+custom_styles/panel = SubResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -461,7 +461,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="BattleUI/BattleWon/NinePatchRect/VBoxContainer"]
 margin_right = 297.0
 margin_bottom = 12.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Battle won!"
 align = 1
@@ -476,7 +476,7 @@ alignment = 1
 margin_left = 86.0
 margin_right = 116.0
 margin_bottom = 8.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "500"
 align = 2
@@ -485,7 +485,7 @@ align = 2
 margin_left = 120.0
 margin_right = 210.0
 margin_bottom = 8.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "XP gained"
 
@@ -499,7 +499,7 @@ alignment = 1
 margin_left = 111.0
 margin_right = 141.0
 margin_bottom = 8.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "500"
 align = 2
@@ -508,7 +508,7 @@ align = 2
 margin_left = 145.0
 margin_right = 185.0
 margin_bottom = 8.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "sils"
 
@@ -524,7 +524,7 @@ margin_left = 54.0
 margin_top = 22.0
 margin_right = 84.0
 margin_bottom = 30.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "500"
 align = 2
@@ -534,7 +534,7 @@ margin_left = 88.0
 margin_top = 22.0
 margin_right = 228.0
 margin_bottom = 30.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "XP until level"
 
@@ -543,7 +543,7 @@ margin_left = 232.0
 margin_top = 22.0
 margin_right = 242.0
 margin_bottom = 30.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "6"
 align = 2
@@ -565,7 +565,7 @@ margin_top = 8.0
 margin_right = 297.0
 margin_bottom = 16.0
 size_flags_vertical = 6
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Level Up!"
 align = 1
@@ -582,7 +582,7 @@ margin_left = 41.0
 margin_top = 9.0
 margin_right = 241.0
 margin_bottom = 17.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "You are now at level"
 
@@ -591,7 +591,7 @@ margin_left = 245.0
 margin_top = 9.0
 margin_right = 255.0
 margin_bottom = 17.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "5"
 align = 2
@@ -654,7 +654,7 @@ margin_left = 25.0
 margin_top = 4.0
 margin_right = 57.0
 margin_bottom = 10.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Yuji"
 
@@ -663,7 +663,7 @@ margin_left = 61.0
 margin_top = 4.0
 margin_right = 77.0
 margin_bottom = 10.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LV"
 
@@ -672,7 +672,7 @@ margin_left = 81.0
 margin_top = 4.0
 margin_right = 89.0
 margin_bottom = 10.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "3"
 
@@ -708,7 +708,7 @@ margin_bottom = 6.0
 [node name="Label" type="Label" parent="BattleUI/Stats/HBoxContainer/VBoxContainer/StatsContainer/VBoxContainer/HPContainer"]
 margin_right = 24.0
 margin_bottom = 6.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "HP:"
 
@@ -717,7 +717,7 @@ margin_left = 28.0
 margin_right = 60.0
 margin_bottom = 6.0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "9999"
 align = 2
@@ -726,7 +726,7 @@ align = 2
 margin_left = 64.0
 margin_right = 72.0
 margin_bottom = 6.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "/"
 
@@ -735,7 +735,7 @@ margin_left = 76.0
 margin_right = 108.0
 margin_bottom = 6.0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "9999"
 
@@ -747,7 +747,7 @@ margin_bottom = 16.0
 [node name="Label" type="Label" parent="BattleUI/Stats/HBoxContainer/VBoxContainer/StatsContainer/VBoxContainer/MPContainer"]
 margin_right = 24.0
 margin_bottom = 6.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "MP:"
 
@@ -756,7 +756,7 @@ margin_left = 28.0
 margin_right = 60.0
 margin_bottom = 6.0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "30"
 align = 2
@@ -765,7 +765,7 @@ align = 2
 margin_left = 64.0
 margin_right = 72.0
 margin_bottom = 6.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "/"
 
@@ -774,7 +774,7 @@ margin_left = 76.0
 margin_right = 108.0
 margin_bottom = 6.0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "999"
 
@@ -785,7 +785,7 @@ margin_left = 1.0
 margin_top = 3.0
 margin_right = 4.16
 margin_bottom = -3.0
-custom_styles/panel = SubResource( 9 )
+custom_styles/panel = SubResource( 10 )
 script = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -801,7 +801,7 @@ margin_bottom = 231.0
 margin_right = 171.0
 margin_bottom = 182.0
 size_flags_vertical = 7
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "arst"
 __meta__ = {
@@ -814,7 +814,7 @@ margin_top = 184.0
 margin_right = 179.0
 margin_bottom = 230.0
 size_flags_horizontal = 3
-custom_styles/panel = SubResource( 12 )
+custom_styles/panel = SubResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -825,7 +825,7 @@ margin_top = 2.0
 margin_right = 189.0
 margin_bottom = 44.0
 size_flags_vertical = 7
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "arst"
 autowrap = true

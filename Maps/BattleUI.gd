@@ -17,9 +17,9 @@ var player_items = []
 var enemy_attacks = []
 var xp = 0
 var sils = 0
+var starting_keys_released = false
 
 signal all_attacks_selected(player_attacks, enemy_attacks, player_items)
-
 
 func _ready() -> void:
 	attack_menu.hide()
@@ -34,7 +34,12 @@ func _ready() -> void:
 	item_menu.connect("item_selected", self, "_on_item_selected")
 
 func _input(delta) -> void:
-	if current_menu and current_menu.has_method("input"):
+	if not starting_keys_released:
+		starting_keys_released = true
+		for key in ['ui_left', 'ui_up', 'ui_right', 'ui_down']:
+			if Input.is_action_pressed(key):
+				starting_keys_released = false
+	elif current_menu and current_menu.has_method("input"):
 		current_menu.input(delta)
 
 func set_current_menu(menu : Control) -> void:

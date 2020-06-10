@@ -75,7 +75,6 @@ func _use_items(items : Array) -> void:
 		add_child(hp_node)
 		yield(get_tree().create_timer(2), "timeout")
 
-	
 func _execute_attacks(attacks : Array) -> void:
 	for attack in attacks:
 		if not attack.actor.alive:
