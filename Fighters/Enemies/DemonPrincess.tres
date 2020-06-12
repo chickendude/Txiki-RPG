@@ -1,23 +1,24 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=2 format=2]
 
-[ext_resource path="res://Fighters/StatBase.gd" type="Script" id=1]
-[ext_resource path="res://data/enemies/demon_princess.png" type="Texture" id=2]
+[ext_resource path="res://Fighters/EnemyBase.gd" type="Script" id=1]
 
 [resource]
 resource_local_to_scene = true
 script = ExtResource( 1 )
 name = "Demon Princess"
-max_hp = 100
-hp = 100
-level = 3
-attack_ud = 15
-attack_lr = 10
-defense_u = 5
-defense_d = 10
+max_hp = 0
+hp = 0
+max_mp = 0
+mp = 0
+level = 0
+attack_ud = 0
+attack_lr = 0
+defense_u = 0
+defense_d = 0
 intelligence = 0
-speed = 5
-xp = 30
-sils = 20
-sprite = ExtResource( 2 )
+speed = 0
 h_frames = 3
 v_frames = 1
+xp = 0
+sils = 0
+items = [  ]
