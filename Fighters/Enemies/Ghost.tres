@@ -7,6 +7,7 @@
 resource_local_to_scene = true
 script = ExtResource( 1 )
 name = "Ghost"
+max_hp = 50
 hp = 50
 level = 1
 attack_ud = 10

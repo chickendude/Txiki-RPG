@@ -7,6 +7,7 @@
 resource_local_to_scene = true
 script = ExtResource( 1 )
 name = "Demon Princess"
+max_hp = 100
 hp = 100
 level = 3
 attack_ud = 15

@@ -7,6 +7,7 @@
 resource_local_to_scene = true
 script = ExtResource( 1 )
 name = "Pink Globlin"
+max_hp = 150
 hp = 150
 level = 2
 attack_ud = 20

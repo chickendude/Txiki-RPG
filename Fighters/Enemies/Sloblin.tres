@@ -7,6 +7,7 @@
 resource_local_to_scene = true
 script = ExtResource( 1 )
 name = "Sloblin"
+max_hp = 60
 hp = 60
 level = 1
 attack_ud = 10
