@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
-[ext_resource path="res://Enemies/EnemyBase.gd" type="Script" id=1]
+[ext_resource path="res://Fighters/StatBase.gd" type="Script" id=1]
 [ext_resource path="res://data/enemies/demon_princess.png" type="Texture" id=2]
 
 [resource]
@@ -9,14 +9,12 @@ script = ExtResource( 1 )
 name = "Demon Princess"
 hp = 100
 level = 3
-attack_l = 10
-attack_r = 10
-attack_u = 12
-attack_d = 8
-magic = 0
-defense = 9
-magic_defense = 0
-speed = 0
+attack_ud = 15
+attack_lr = 10
+defense_u = 5
+defense_d = 10
+intelligence = 0
+speed = 5
 xp = 30
 sils = 20
 sprite = ExtResource( 2 )

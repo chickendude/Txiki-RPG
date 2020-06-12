@@ -20,11 +20,6 @@ _global_script_classes=[ {
 "path": "res://Equipment/BaseStats.gd"
 }, {
 "base": "Resource",
-"class": "EnemyBase",
-"language": "GDScript",
-"path": "res://Enemies/EnemyBase.gd"
-}, {
-"base": "Resource",
 "class": "Item",
 "language": "GDScript",
 "path": "res://Items/ItemBase.gd"
@@ -38,14 +33,19 @@ _global_script_classes=[ {
 "class": "Maps",
 "language": "GDScript",
 "path": "res://Singletons/Maps.gd"
+}, {
+"base": "Resource",
+"class": "StatBase",
+"language": "GDScript",
+"path": "res://Fighters/StatBase.gd"
 } ]
 _global_script_class_icons={
 "Attack": "",
 "BaseStats": "",
-"EnemyBase": "",
 "Item": "",
 "ItemAttack": "",
-"Maps": ""
+"Maps": "",
+"StatBase": ""
 }
 
 [application]

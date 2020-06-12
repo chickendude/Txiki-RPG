@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
-[ext_resource path="res://Enemies/EnemyBase.gd" type="Script" id=1]
+[ext_resource path="res://Fighters/StatBase.gd" type="Script" id=1]
 [ext_resource path="res://data/enemies/sloblin.png" type="Texture" id=2]
 
 [resource]
@@ -9,13 +9,11 @@ script = ExtResource( 1 )
 name = "Sloblin"
 hp = 60
 level = 1
-attack_l = 4
-attack_r = 4
-attack_u = 5
-attack_d = 6
-magic = 0
-defense = 2
-magic_defense = 0
+attack_ud = 10
+attack_lr = 8
+defense_u = 0
+defense_d = 5
+intelligence = 0
 speed = 1
 xp = 5
 sils = 4

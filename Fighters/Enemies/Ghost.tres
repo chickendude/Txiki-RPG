@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
-[ext_resource path="res://Enemies/EnemyBase.gd" type="Script" id=1]
+[ext_resource path="res://Fighters/StatBase.gd" type="Script" id=1]
 [ext_resource path="res://data/enemies/ghost.png" type="Texture" id=2]
 
 [resource]
@@ -9,14 +9,12 @@ script = ExtResource( 1 )
 name = "Ghost"
 hp = 50
 level = 1
-attack_l = 4
-attack_r = 4
-attack_u = 8
-attack_d = 0
-magic = 0
-defense = 4
-magic_defense = 0
-speed = 0
+attack_ud = 10
+attack_lr = 12
+defense_u = 8
+defense_d = 6
+intelligence = 5
+speed = 6
 xp = 12
 sils = 5
 sprite = ExtResource( 2 )

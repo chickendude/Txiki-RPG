@@ -27,10 +27,8 @@ var level = 1
 var xp = 0 setget _set_xp
 var total_xp = 0
 var sils = 200 # money
-var attack_l = 6
-var attack_r = 7
-var attack_u = 8
-var attack_d = 6
+var attack_lr = 6
+var attack_ud = 7
 var defense = 2
 var speed = 12
 
@@ -83,10 +81,8 @@ func _level_up(next_level_xp) -> void:
 	level += 1
 	max_hp += 5
 	hp += 5
-	attack_l += 2
-	attack_r += 2
-	attack_u += 2
-	attack_d += 2
+	attack_lr += 2
+	attack_ud += 2
 	defense += 2
 	speed += 2
 	attack_bar += 4.5

@@ -12,12 +12,12 @@ const maps = {
 # monsters
 
 const m = {
-	'demon_princess': "res://Enemies/DemonPrincess.tres",
-	'ghost': "res://Enemies/Ghost.tres",
-	'lost_soul': "res://Enemies/LostSoul.tres",
-	'pink_globlin': "res://Enemies/PinkGloblin.tres",
-	'sloblin': "res://Enemies/Sloblin.tres",
-	'streaker': "res://Enemies/Streaker.tres"
+	'demon_princess': "res://Fighters/Enemies/DemonPrincess.tres",
+	'ghost': "res://Fighters/Enemies/Ghost.tres",
+	'lost_soul': "res://Fighters/Enemies/LostSoul.tres",
+	'pink_globlin': "res://Fighters/Enemies/PinkGloblin.tres",
+	'sloblin': "res://Fighters/Enemies/Sloblin.tres",
+	'streaker': "res://Fighters/Enemies/Streaker.tres"
 }
 
 # monsters at each location

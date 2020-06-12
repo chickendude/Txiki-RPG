@@ -3,7 +3,7 @@ extends Node2D
 onready var ui = $BattleUI
 onready var new_combo = $BattleUI/NewCombo
 
-var Monster = preload("res://Enemies/Enemy.tscn")
+var Monster = preload("res://Fighters/Enemy.tscn")
 var Yuji = preload("res://Player/Yuji.tscn")
 var DamageNode = preload("res://Battle/DamageNode.tscn")
 var HPNode = preload("res://Battle/HPNode.tscn")
@@ -97,15 +97,16 @@ func _execute_attacks(attacks : Array) -> void:
 				var num_hits = 1 # only hit once by default
 				var atk_power : int
 				var stats = attacker.stats
-				match atk:
-					Attack.UP:
-						atk_power = stats.attack_u
-					Attack.DOWN:
-						atk_power = stats.attack_d
-					Attack.LEFT:
-						atk_power = stats.attack_l
-					Attack.RIGHT:
-						atk_power = stats.attack_r
+				atk_power = stats.attack_lr if atk == Attack.LEFT or atk == Attack.RIGHT else stats.attack_ud
+#				match atk:
+#					Attack.UP:
+#						atk_power = stats.attack_u
+#					Attack.DOWN:
+#						atk_power = stats.attack_d
+#					Attack.LEFT:
+#						atk_power = stats.attack_l
+#					Attack.RIGHT:
+#						atk_power = stats.attack_r
 				attacks_in_combo.append(atk)
 				var combo = _check_combo(attacks_in_combo)
 				if combo:
