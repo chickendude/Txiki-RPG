@@ -1,0 +1,56 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Fighters/PartyBase.gd" type="Script" id=1]
+[ext_resource path="res://data/characters/yuji.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "Yuji"
+max_hp = 115
+hp = 115
+max_mp = 0
+mp = 0
+level = 1
+attack_ud = 15
+attack_lr = 10
+defense_u = 10
+defense_d = 10
+intelligence = 10
+speed = 10
+sprite = ExtResource( 2 )
+h_frames = 4
+v_frames = 3
+Combos = [ {
+"moves": "UDU",
+"name": "Clockwheel",
+"num_hits": 2,
+"power": 1.2
+}, {
+"moves": "LRU",
+"name": "Slobdash",
+"num_hits": 2,
+"power": 1.2
+}, {
+"moves": "RRD",
+"name": "Hellthy",
+"num_hits": 4,
+"power": 0.9
+}, {
+"moves": "DUU",
+"name": "Summer Salt",
+"num_hits": 2,
+"power": 1.2
+}, {
+"moves": "LLUU",
+"name": "Floatlag",
+"num_hits": 2,
+"power": 1.3
+}, {
+"moves": "LRLLD",
+"name": "Sinking Sill",
+"num_hits": 3,
+"power": 1.2
+} ]
+xp = 0
+total_xp = 0
+attack_bar = 0
