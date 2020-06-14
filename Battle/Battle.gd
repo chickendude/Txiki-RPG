@@ -67,8 +67,9 @@ func _sort_by_speed(a, b):
 	return a.speed > b.speed
 
 func _use_items(items : Array) -> void:
+	# todo: take into account speed
 	for item in items:
-		Player.use_item(item.item_name)
+		Player.use_item(item.target, item.item_name)
 		var hp_node = HPNode.instance()
 		hp_node.position = Vector2(item.target.position.x, item.target.position.y - 20)
 		hp_node.set_amt(Items.all[item.item_name].hp)

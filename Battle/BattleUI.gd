@@ -11,6 +11,7 @@ onready var stats = $Stats
 var current_menu : Control setget set_current_menu
 var monsters setget set_monsters
 var party = []
+var current_character : PartyMember
 var player_attacks = []
 var player_items = []
 var enemy_attacks = []
@@ -24,6 +25,7 @@ func _ready() -> void:
 	attack_menu.hide()
 	battle_won_screen.hide()
 	item_menu.hide()
+	_load_next_character()
 	self.current_menu = battle_menu
 	battle_menu.connect("open_attack_menu", self, "_open_attack_menu")
 	battle_menu.connect("open_item_menu", self, "_open_item_menu")
@@ -64,6 +66,11 @@ func _check_all_keys_released():
 		if Input.is_action_pressed(key):
 			starting_keys_released = false
 
+func _load_next_character():
+	# todo: handle fainted characters and move _dispatch_attacks call here
+	var index = len(player_attacks)
+	current_character = Player.party[index]
+
 # menu functions
 
 func _close_menu() -> void:
@@ -71,12 +78,11 @@ func _close_menu() -> void:
 	current_menu = null
 
 func _open_attack_menu() -> void:
-	attack_menu.monsters = monsters
-	attack_menu.party = party
+	attack_menu.load_attack_container(current_character, monsters)
 	self.current_menu = attack_menu
 
 func _open_item_menu() -> void:
-	item_menu.party = party
+	item_menu.character = current_character
 	item_menu.load_items()
 	self.current_menu = item_menu
 
@@ -92,7 +98,12 @@ func open_battle_won_screen() -> void:
 
 func _player_attack_selected(attack) -> void:
 	player_attacks.append(attack)
-	_dispatch_attacks()
+	# todo: handle fainted party members
+	if len(player_attacks) == len(Player.party):
+		_dispatch_attacks()
+	else:
+		_load_next_character()
+		open_battle_menu()
 
 func _dispatch_attacks() -> void:
 	_close_menu()

@@ -8,12 +8,12 @@ onready var mp_label = $HBoxContainer/VBoxContainer/StatsContainer/VBoxContainer
 onready var max_mp_label = $HBoxContainer/VBoxContainer/StatsContainer/VBoxContainer/MPContainer/MaxMPLabel
 
 func _ready():
-	name_label.text = Player._name
-	level_label.text = str(Player.level)
-	max_hp_label.text = str(Player.max_hp)
-	max_mp_label.text = str(Player.max_mp)
-	_hp_changed()
-	_mp_changed()
+#	name_label.text = Player._name
+#	level_label.text = str(Player.level)
+#	max_hp_label.text = str(Player.max_hp)
+#	max_mp_label.text = str(Player.max_mp)
+#	_hp_changed()
+#	_mp_changed()
 	var _e = Player.connect("hp_changed", self, "_hp_changed")
 
 func _hp_changed():

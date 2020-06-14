@@ -19,6 +19,6 @@ intelligence = 0
 speed = 0
 h_frames = 3
 v_frames = 1
-xp = 0
+xp = 20
 sils = 0
 items = [  ]

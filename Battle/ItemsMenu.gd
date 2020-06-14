@@ -12,7 +12,7 @@ const TEXT_X = 7
 const TEXT_Y = 7
 const ITEM_HEIGHT = 9
 
-var party = []
+var character : PartyMember
 
 signal close_menu
 signal item_selected(item)
@@ -86,8 +86,8 @@ func _use_item() -> void:
 	var item = Player.items.keys()[index]
 	var item_attack = ItemAttack.new()
 	item_attack.item_name = item
-	item_attack.actor = party[0]
-	item_attack.target = party[0]
+	item_attack.actor = character
+	item_attack.target = character
 	emit_signal("item_selected", item_attack)
 #	Player.use_item(item)
 #	_load_items()

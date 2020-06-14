@@ -748,7 +748,6 @@ remote_path = NodePath("../../../Camera2D")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
-autoplay = true
 
 [node name="Events" type="Node" parent="."]
 

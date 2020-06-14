@@ -9,7 +9,7 @@ const PADDING = 3
 onready var attack_container = $AttackContainer
 
 var monsters : Array
-var party = []
+var character : PartyMember
 var attacks = []
 var select_target = false
 var attacks_preloaded = false
@@ -21,7 +21,6 @@ signal attack_selected(attack)
 
 func _ready():
 	select_target = false
-	_setup_attack_container()
 
 func input(_delta):
 	accept_event()
@@ -30,11 +29,13 @@ func input(_delta):
 	else:
 		_attack_keys()
 
-func _setup_attack_container():
-	var screen_w = ProjectSettings.get_setting("display/window/size/width") 
-	attack_container.rect_position.x = screen_w / 2 - Player.attack_bar / 2 - PADDING
-	attack_container.rect_size.x = Player.attack_bar + PADDING * 2
-	if len(attacks) > Player.attack_bar / ARROW_W:
+func load_attack_container(_character : PartyMember, _monsters : Array) -> void:
+	character = _character
+	monsters = _monsters
+	var screen_w = ProjectSettings.get_setting("display/window/size/width")
+	attack_container.rect_position.x = screen_w / 2 - character.attack_bar / 2 - PADDING
+	attack_container.rect_size.x = character.attack_bar + PADDING * 2
+	if len(attacks) > character.attack_bar / ARROW_W:
 		attacks.pop_front()
 		attack_container.get_child(attack_container.get_child_count()-1).queue_free()
 
@@ -117,8 +118,8 @@ func _attack_selected():
 	var monster = monsters[target_index]
 	var attack = Attack.new()
 	attack.attacks = attacks
-	attack.actor = party[0]
+	attack.actor = character
 	attack.target = monster
-	attack.speed = party[0].stats.speed
+	attack.speed = character.speed
 	print("attacking " + monster.stats.name + " with hp: " + str(monster.stats.hp))
 	emit_signal("attack_selected", attack)
