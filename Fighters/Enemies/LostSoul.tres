@@ -1,17 +1,17 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
-[ext_resource path="res://Fighters/StatBase.gd" type="Script" id=1]
+[ext_resource path="res://Fighters/EnemyBase.gd" type="Script" id=1]
 [ext_resource path="res://data/enemies/lost_soul.png" type="Texture" id=2]
 
 [resource]
 resource_local_to_scene = true
 script = ExtResource( 1 )
 name = "Lost Soul"
-max_hp = 70
-hp = 70
+max_hp = 60
+hp = 60
 max_mp = 0
 mp = 0
-level = 1
+level = 0
 attack_ud = 0
 attack_lr = 0
 defense_u = 0
@@ -21,3 +21,6 @@ speed = 0
 sprite = ExtResource( 2 )
 h_frames = 3
 v_frames = 1
+xp = 0
+sils = 0
+items = [  ]

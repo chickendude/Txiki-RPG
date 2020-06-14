@@ -12,7 +12,6 @@ var text_pos = 0
 var current_text : String
 var current_line = ""
 var end_of_page_index = 0
-var lines = []
 
 func _ready():
 	text_label.text = ""

@@ -53,4 +53,4 @@ Combos = [ {
 } ]
 xp = 0
 total_xp = 0
-attack_bar = 0
+attack_bar = 50

@@ -69,7 +69,7 @@ func _add_attack(direction : int) -> void:
 	if attacks_preloaded:
 		_clear_attacks()
 		attacks_preloaded = false
-	if len(attacks) >= int(Player.attack_bar / ARROW_W):
+	if len(attacks) >= int(character.attack_bar / ARROW_W):
 		return
 	var attack_arrow = AttackArrow.instance()
 	attack_arrow.frame = direction

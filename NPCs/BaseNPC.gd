@@ -13,7 +13,7 @@ var player_looking = false
 func _ready():
 	interaction_area.connect("area_entered", self, "_player_entered")
 
-func _unhandled_key_input(event):
+func _unhandled_key_input(_event):
 	if player_looking and Input.is_action_just_pressed("ui_accept"):
 		var text = text1 if not event_id in Event.text_events else text2
 		Event.text_events.append(event_id)
