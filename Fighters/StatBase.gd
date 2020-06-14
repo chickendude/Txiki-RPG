@@ -19,6 +19,8 @@ export (Texture) var sprite
 export var h_frames = 3
 export var v_frames = 1
 
+var alive = true
+
 signal died
 
 var combo = [] # ?? perhaps not needed anymore ??
@@ -27,7 +29,8 @@ var combo = [] # ?? perhaps not needed anymore ??
 
 func _set_hp(_hp):
 	hp = clamp(_hp, 0, max_hp)
-	if hp == 0:
+	alive = hp == 0
+	if not alive:
 		emit_signal("died")
 
 func _set_mp(_mp):
