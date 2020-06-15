@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ghost.png-ff6bbc00a18e069ae5fd56ef7706c69b.stex"
+path="res://.import/stats_box.png-9e32c400bd1fde5a1f3237a9a31a1a14.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://data/enemies/ghost.png"
-dest_files=[ "res://.import/ghost.png-ff6bbc00a18e069ae5fd56ef7706c69b.stex" ]
+source_file="res://data/ui/stats_box.png"
+dest_files=[ "res://.import/stats_box.png-9e32c400bd1fde5a1f3237a9a31a1a14.stex" ]
 
 [params]
 

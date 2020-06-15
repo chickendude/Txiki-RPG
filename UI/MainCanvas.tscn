@@ -6,5 +6,7 @@
 [node name="CanvasLayer" type="CanvasLayer"]
 
 [node name="Menu" parent="." instance=ExtResource( 4 )]
+visible = false
 
 [node name="DialogBox" parent="." instance=ExtResource( 3 )]
+visible = false

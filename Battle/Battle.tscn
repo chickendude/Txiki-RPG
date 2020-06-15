@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://UI/Cursor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://data/music/evilland.ogg" type="AudioStream" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Battle/BattleUI.gd" type="Script" id=14]
 [ext_resource path="res://Battle/BattleWon.gd" type="Script" id=15]
 [ext_resource path="res://Battle/Stats.gd" type="Script" id=16]
+[ext_resource path="res://Battle/StatsBox.tscn" type="PackedScene" id=17]
 
 [sub_resource type="TileSet" id=1]
 0/name = "overworld_tiles.png 0"
@@ -252,15 +253,7 @@ font_path = "res://data/ui/dogica.ttf"
 size = 10
 font_data = SubResource( 6 )
 
-[sub_resource type="DynamicFontData" id=8]
-antialiased = false
-font_path = "res://data/ui/dogica.ttf"
-
-[sub_resource type="DynamicFont" id=9]
-size = 8
-font_data = SubResource( 8 )
-
-[sub_resource type="StyleBoxFlat" id=10]
+[sub_resource type="StyleBoxFlat" id=8]
 content_margin_left = 12.0
 content_margin_right = 3.0
 content_margin_top = 4.0
@@ -276,16 +269,16 @@ corner_radius_bottom_right = 3
 corner_detail = 20
 anti_aliasing = false
 
-[sub_resource type="DynamicFontData" id=11]
+[sub_resource type="DynamicFontData" id=9]
 antialiased = false
 hinting = 0
 font_path = "res://data/ui/dogica.ttf"
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=10]
 size = 8
-font_data = SubResource( 11 )
+font_data = SubResource( 9 )
 
-[sub_resource type="StyleBoxFlat" id=13]
+[sub_resource type="StyleBoxFlat" id=11]
 bg_color = Color( 0.964706, 0.866667, 0.866667, 0.466667 )
 border_width_left = 2
 border_width_top = 1
@@ -293,21 +286,21 @@ border_width_right = 2
 border_width_bottom = 1
 border_color = Color( 0.878431, 0.294118, 0.294118, 1 )
 
-[sub_resource type="StyleBoxFlat" id=14]
+[sub_resource type="StyleBoxFlat" id=12]
 bg_color = Color( 1, 0.447059, 0.447059, 1 )
 border_width_top = 4
 border_width_bottom = 4
 border_color = Color( 0.792157, 0.141176, 0.141176, 1 )
 anti_aliasing = false
 
-[sub_resource type="DynamicFontData" id=15]
+[sub_resource type="DynamicFontData" id=13]
 antialiased = false
 hinting = 0
 font_path = "res://data/ui/dogica.ttf"
 
-[sub_resource type="DynamicFont" id=16]
+[sub_resource type="DynamicFont" id=14]
 size = 22
-font_data = SubResource( 15 )
+font_data = SubResource( 13 )
 
 [node name="Battle" type="Node2D"]
 script = ExtResource( 12 )
@@ -328,6 +321,7 @@ tile_data = PoolIntArray( 2, 9, 0, 3, 9, 0, 7, 6, 0, 8, 1, 0, 65545, 5, 0, 26214
 script = ExtResource( 14 )
 
 [node name="BattleMenu" type="Control" parent="BattleUI"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.004
 margin_right = -1.0
@@ -398,6 +392,7 @@ scale = Vector2( 1.14706, 1.14706 )
 texture = ExtResource( 3 )
 
 [node name="AttackMenu" type="Control" parent="BattleUI"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 145.0
@@ -605,187 +600,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="BattleUI/Stats"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 103.0
-margin_top = 197.0
-margin_right = -103.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="StatContainer" type="Node2D" parent="BattleUI/Stats"]
+position = Vector2( 77, 203 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BattleUI/Stats/HBoxContainer"]
-margin_right = 115.0
-margin_bottom = 43.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_constants/separation = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="NinePatchRect" type="NinePatchRect" parent="BattleUI/Stats/HBoxContainer/VBoxContainer"]
-margin_right = 115.0
-margin_bottom = 16.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.6
-texture = ExtResource( 8 )
-patch_margin_left = 6
-patch_margin_top = 6
-patch_margin_right = 6
-patch_margin_bottom = 6
-
-[node name="NameContainer" type="HBoxContainer" parent="BattleUI/Stats/HBoxContainer/VBoxContainer/NinePatchRect"]
-anchor_right = 1.0
-anchor_bottom = 0.75
-margin_bottom = 3.0
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="NameLabel" type="Label" parent="BattleUI/Stats/HBoxContainer/VBoxContainer/NinePatchRect/NameContainer"]
-margin_left = 25.0
-margin_top = 4.0
-margin_right = 57.0
-margin_bottom = 10.0
-custom_fonts/font = SubResource( 9 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Yuji"
-
-[node name="Label" type="Label" parent="BattleUI/Stats/HBoxContainer/VBoxContainer/NinePatchRect/NameContainer"]
-margin_left = 61.0
-margin_top = 4.0
-margin_right = 77.0
-margin_bottom = 10.0
-custom_fonts/font = SubResource( 9 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "LV"
-
-[node name="LevelLabel" type="Label" parent="BattleUI/Stats/HBoxContainer/VBoxContainer/NinePatchRect/NameContainer"]
-margin_left = 81.0
-margin_top = 4.0
-margin_right = 89.0
-margin_bottom = 10.0
-custom_fonts/font = SubResource( 9 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "3"
-
-[node name="StatsContainer" type="NinePatchRect" parent="BattleUI/Stats/HBoxContainer/VBoxContainer"]
-margin_top = 16.0
-margin_right = 115.0
-margin_bottom = 43.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 8 )
-patch_margin_left = 6
-patch_margin_top = 6
-patch_margin_right = 6
-patch_margin_bottom = 6
-
-[node name="VBoxContainer" type="VBoxContainer" parent="BattleUI/Stats/HBoxContainer/VBoxContainer/StatsContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 4.0
-margin_right = -20.0
-margin_bottom = -3.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HPContainer" type="HBoxContainer" parent="BattleUI/Stats/HBoxContainer/VBoxContainer/StatsContainer/VBoxContainer"]
-margin_right = 108.0
-margin_bottom = 6.0
-
-[node name="Label" type="Label" parent="BattleUI/Stats/HBoxContainer/VBoxContainer/StatsContainer/VBoxContainer/HPContainer"]
-margin_right = 24.0
-margin_bottom = 6.0
-custom_fonts/font = SubResource( 9 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "HP:"
-
-[node name="HPLabel" type="Label" parent="BattleUI/Stats/HBoxContainer/VBoxContainer/StatsContainer/VBoxContainer/HPContainer"]
-margin_left = 28.0
-margin_right = 60.0
-margin_bottom = 6.0
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 9 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "9999"
-align = 2
-
-[node name="Label2" type="Label" parent="BattleUI/Stats/HBoxContainer/VBoxContainer/StatsContainer/VBoxContainer/HPContainer"]
-margin_left = 64.0
-margin_right = 72.0
-margin_bottom = 6.0
-custom_fonts/font = SubResource( 9 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "/"
-
-[node name="MaxHPLabel" type="Label" parent="BattleUI/Stats/HBoxContainer/VBoxContainer/StatsContainer/VBoxContainer/HPContainer"]
-margin_left = 76.0
-margin_right = 108.0
-margin_bottom = 6.0
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 9 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "9999"
-
-[node name="MPContainer" type="HBoxContainer" parent="BattleUI/Stats/HBoxContainer/VBoxContainer/StatsContainer/VBoxContainer"]
-margin_top = 10.0
-margin_right = 108.0
-margin_bottom = 16.0
-
-[node name="Label" type="Label" parent="BattleUI/Stats/HBoxContainer/VBoxContainer/StatsContainer/VBoxContainer/MPContainer"]
-margin_right = 24.0
-margin_bottom = 6.0
-custom_fonts/font = SubResource( 9 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "MP:"
-
-[node name="MPLabel" type="Label" parent="BattleUI/Stats/HBoxContainer/VBoxContainer/StatsContainer/VBoxContainer/MPContainer"]
-margin_left = 28.0
-margin_right = 60.0
-margin_bottom = 6.0
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 9 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "30"
-align = 2
-
-[node name="Label2" type="Label" parent="BattleUI/Stats/HBoxContainer/VBoxContainer/StatsContainer/VBoxContainer/MPContainer"]
-margin_left = 64.0
-margin_right = 72.0
-margin_bottom = 6.0
-custom_fonts/font = SubResource( 9 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "/"
-
-[node name="MaxMPLabel" type="Label" parent="BattleUI/Stats/HBoxContainer/VBoxContainer/StatsContainer/VBoxContainer/MPContainer"]
-margin_left = 76.0
-margin_right = 108.0
-margin_bottom = 6.0
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 9 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "999"
+[node name="StatsBox" parent="BattleUI/Stats/StatContainer" instance=ExtResource( 17 )]
+visible = false
 
 [node name="ItemsMenu" type="PanelContainer" parent="BattleUI"]
+visible = false
 anchor_right = 0.587
 anchor_bottom = 1.0
 margin_left = 1.0
 margin_top = 3.0
 margin_right = 4.16
 margin_bottom = -3.0
-custom_styles/panel = SubResource( 10 )
+custom_styles/panel = SubResource( 8 )
 script = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -799,7 +628,7 @@ margin_top = 4.0
 margin_right = 187.0
 margin_bottom = 193.0
 size_flags_vertical = 7
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "arst"
 __meta__ = {
@@ -815,7 +644,7 @@ margin_top = 198.0
 margin_right = 189.0
 margin_bottom = 200.0
 size_flags_horizontal = 3
-custom_styles/panel = SubResource( 13 )
+custom_styles/panel = SubResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -826,7 +655,7 @@ margin_top = 202.0
 margin_right = 187.0
 margin_bottom = 233.0
 size_flags_vertical = 7
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "lerro 1
 2 lerro
@@ -841,11 +670,12 @@ __meta__ = {
 position = Vector2( 6, 8 )
 
 [node name="NewCombo" type="PanelContainer" parent="BattleUI"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 115.0
 margin_bottom = -85.0
-custom_styles/panel = SubResource( 14 )
+custom_styles/panel = SubResource( 12 )
 script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -855,7 +685,7 @@ __meta__ = {
 margin_top = 11.0
 margin_right = 320.0
 margin_bottom = 29.0
-custom_fonts/font = SubResource( 16 )
+custom_fonts/font = SubResource( 14 )
 text = "New Combo!"
 align = 1
 
