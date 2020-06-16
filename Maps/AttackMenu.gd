@@ -34,6 +34,10 @@ func load_attack_container(_character : Fighter, _monsters : Array) -> void:
 	character = _character
 	char_info = character.stats
 	monsters = _monsters
+	_clear_attacks()
+	attacks = char_info.prev_attacks
+	for atk in attacks:
+		_add_attack(atk)
 	var screen_w = ProjectSettings.get_setting("display/window/size/width")
 	attack_container.rect_position.x = screen_w / 2 - char_info.attack_bar / 2 - PADDING
 	attack_container.rect_size.x = char_info.attack_bar + PADDING * 2
@@ -123,5 +127,6 @@ func _attack_selected():
 	attack.actor = character
 	attack.target = monster
 	attack.speed = char_info.speed
+	char_info.prev_attacks = attacks
 	print("attacking " + monster.stats.name + " with hp: " + str(monster.stats.hp))
 	emit_signal("attack_selected", attack)

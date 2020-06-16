@@ -40,6 +40,7 @@ func _input(delta) -> void:
 		current_menu.input(delta)
 
 func load_battle_ui(_party : Array, _monsters : Array):
+	player_attacks = []
 	party = _party
 	monsters = _monsters
 	_load_next_character()
