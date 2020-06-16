@@ -653,6 +653,7 @@ polygon = PoolVector2Array( -11, 214, -10, 465, 241, 279, 800, 283, 800, 214 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
+volume_db = -10.0
 
 [node name="Events" type="Node2D" parent="."]
 
