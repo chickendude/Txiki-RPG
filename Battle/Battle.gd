@@ -14,6 +14,7 @@ var party = []
 
 const PLAYER_X = 220
 const PLAYER_Y = 120
+const PLAYER_H = 30
 const X1 = 100
 const X2 = 80
 const SCREEN_H = 240
@@ -49,12 +50,14 @@ func _get_monster_position(index : int) -> Vector2:
 	return Vector2(x, y)
 
 func _add_party():
-	var yuji = Yuji.instance()
-	yuji.position = Vector2(PLAYER_X, PLAYER_Y)
-	Player.direction = Vector2.LEFT
-	yuji.can_move = false
-	add_child(yuji)
-	ui.party = [yuji]
+	var party_size := len(Player.party)
+	for i in range(party_size):
+		var character = Player.party[i]
+		var member = Monster.instance()
+		member.stats = character
+		member.position = Vector2(PLAYER_X, PLAYER_Y + PLAYER_H * i)
+		add_child(member)
+		ui.party.append(member)
 
 func _all_attacks_selected(player_attacks : Array, enemy_attacks : Array, player_items : Array) -> void:
 	var attacks = player_attacks

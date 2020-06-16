@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/house.ogg-4684a87af371e9fd40e12447b40dfd8b.oggstr"
+
+[deps]
+
+source_file="res://Fighters/house.ogg"
+dest_files=[ "res://.import/house.ogg-4684a87af371e9fd40e12447b40dfd8b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
