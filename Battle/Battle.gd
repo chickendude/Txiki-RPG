@@ -11,13 +11,13 @@ var HPNode = preload("res://Battle/HPNode.tscn")
 var monsters = []
 var monster_objs = []
 var party = []
+var screen_h = ProjectSettings.get_setting("display/window/size/height")
 
 const PLAYER_X = 220
 const PLAYER_Y = 120
 const PLAYER_H = 30
 const X1 = 100
 const X2 = 80
-const SCREEN_H = 240
 const Y_SPACING = 20
 
 # Called when the node enters the scene tree for the first time.
@@ -25,7 +25,7 @@ func _ready():
 	_add_monsters()
 	_add_party()
 	ui.connect("all_attacks_selected", self, "_all_attacks_selected")
-	ui.monsters = monster_objs
+	ui.load_battle_ui(party, monster_objs)
 
 func _add_monsters():
 	for monster_resource in Event.parameters:
@@ -40,7 +40,7 @@ func _add_monsters():
 
 func _get_monster_position(index : int) -> Vector2:
 	var num_monsters = len(monsters)
-	var starting_y = SCREEN_H / 2.0 - num_monsters * Y_SPACING / 2.0
+	var starting_y = screen_h / 2.0 - num_monsters * Y_SPACING / 2.0 + Y_SPACING / 2
 	var x
 	if num_monsters <= 2:
 		x = X1
@@ -54,10 +54,11 @@ func _add_party():
 	for i in range(party_size):
 		var character = Player.party[i]
 		var member = Fighter.instance()
+		var y = (screen_h - party_size * PLAYER_H) / 2 + PLAYER_H * i + PLAYER_H / 2
 		member.stats = character
-		member.position = Vector2(PLAYER_X, PLAYER_Y + PLAYER_H * i)
+		member.position = Vector2(PLAYER_X, y)
 		add_child(member)
-		ui.party.append(member)
+		party.append(member)
 
 func _all_attacks_selected(player_attacks : Array, enemy_attacks : Array, player_items : Array) -> void:
 	var attacks = player_attacks
@@ -83,7 +84,7 @@ func _execute_attacks(attacks : Array) -> void:
 	for attack in attacks:
 		if not attack.actor.alive:
 			continue
-		var attacker : KinematicBody2D = attack.actor
+		var attacker : Fighter = attack.actor
 		var target_position : Vector2 = attack.target.position
 		attacker.starting_position = attacker.position
 		if attacker.position.x > target_position.x:
@@ -101,18 +102,10 @@ func _execute_attacks(attacks : Array) -> void:
 				var num_hits = 1 # only hit once by default
 				var atk_power : int
 				var stats = attacker.stats
+				# todo: unify attack stat and add in equipment bonus
 				atk_power = stats.attack_lr if atk == Attack.LEFT or atk == Attack.RIGHT else stats.attack_ud
-#				match atk:
-#					Attack.UP:
-#						atk_power = stats.attack_u
-#					Attack.DOWN:
-#						atk_power = stats.attack_d
-#					Attack.LEFT:
-#						atk_power = stats.attack_l
-#					Attack.RIGHT:
-#						atk_power = stats.attack_r
 				attacks_in_combo.append(atk)
-				var combo = _check_combo(attacks_in_combo)
+				var combo = _check_combo(stats, attacks_in_combo)
 				if combo:
 					if not combo.name in Player.combos_learned:
 						new_combo.play_animation()
@@ -141,12 +134,12 @@ func _execute_attacks(attacks : Array) -> void:
 	else:
 		_battle_won()
 
-func _check_combo(attacks_in_combo : Array):
+func _check_combo(stats : StatBase, attacks_in_combo : Array):
 	var combo_letters = ""
 	for attack in attacks_in_combo:
 		combo_letters += Attack.Letters[attack]
 	print(combo_letters)
-	for combo in Player.Combos:
+	for combo in stats.Combos:
 		if combo.moves in combo_letters:
 			return combo
 	return null

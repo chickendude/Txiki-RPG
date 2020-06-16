@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+class_name Fighter
+
 export (Resource) var stats
 
 const SPEED = 200

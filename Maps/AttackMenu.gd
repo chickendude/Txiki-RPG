@@ -9,7 +9,8 @@ const PADDING = 3
 onready var attack_container = $AttackContainer
 
 var monsters : Array
-var character : PartyMember
+var character : Fighter
+var char_info : PartyMember
 var attacks = []
 var select_target = false
 var attacks_preloaded = false
@@ -29,13 +30,14 @@ func input(_delta):
 	else:
 		_attack_keys()
 
-func load_attack_container(_character : PartyMember, _monsters : Array) -> void:
+func load_attack_container(_character : Fighter, _monsters : Array) -> void:
 	character = _character
+	char_info = character.stats
 	monsters = _monsters
 	var screen_w = ProjectSettings.get_setting("display/window/size/width")
-	attack_container.rect_position.x = screen_w / 2 - character.attack_bar / 2 - PADDING
-	attack_container.rect_size.x = character.attack_bar + PADDING * 2
-	if len(attacks) > character.attack_bar / ARROW_W:
+	attack_container.rect_position.x = screen_w / 2 - char_info.attack_bar / 2 - PADDING
+	attack_container.rect_size.x = char_info.attack_bar + PADDING * 2
+	if len(attacks) > char_info.attack_bar / ARROW_W:
 		attacks.pop_front()
 		attack_container.get_child(attack_container.get_child_count()-1).queue_free()
 
@@ -69,7 +71,7 @@ func _add_attack(direction : int) -> void:
 	if attacks_preloaded:
 		_clear_attacks()
 		attacks_preloaded = false
-	if len(attacks) >= int(character.attack_bar / ARROW_W):
+	if len(attacks) >= int(char_info.attack_bar / ARROW_W):
 		return
 	var attack_arrow = AttackArrow.instance()
 	attack_arrow.frame = direction
@@ -120,6 +122,6 @@ func _attack_selected():
 	attack.attacks = attacks
 	attack.actor = character
 	attack.target = monster
-	attack.speed = character.speed
+	attack.speed = char_info.speed
 	print("attacking " + monster.stats.name + " with hp: " + str(monster.stats.hp))
 	emit_signal("attack_selected", attack)
