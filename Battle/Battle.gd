@@ -3,7 +3,7 @@ extends Node2D
 onready var ui = $BattleUI
 onready var new_combo = $BattleUI/NewCombo
 
-var Monster = preload("res://Fighters/Enemy.tscn")
+var Fighter = preload("res://Fighters/Fighter.tscn")
 var Yuji = preload("res://Player/Yuji.tscn")
 var DamageNode = preload("res://Battle/DamageNode.tscn")
 var HPNode = preload("res://Battle/HPNode.tscn")
@@ -32,7 +32,7 @@ func _add_monsters():
 		monsters.append(load(monster_resource))
 	for index in range(len(monsters)):
 		var monster = monsters[index].duplicate()
-		var monster_obj = Monster.instance()
+		var monster_obj = Fighter.instance()
 		monster_obj.stats = monster
 		monster_obj.position = _get_monster_position(index)
 		monster_objs.append(monster_obj)
@@ -53,7 +53,7 @@ func _add_party():
 	var party_size := len(Player.party)
 	for i in range(party_size):
 		var character = Player.party[i]
-		var member = Monster.instance()
+		var member = Fighter.instance()
 		member.stats = character
 		member.position = Vector2(PLAYER_X, PLAYER_Y + PLAYER_H * i)
 		add_child(member)
