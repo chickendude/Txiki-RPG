@@ -40,10 +40,8 @@ func _input(delta) -> void:
 		current_menu.input(delta)
 
 func load_battle_ui(_party : Array, _monsters : Array):
-	player_attacks = []
 	party = _party
 	monsters = _monsters
-	_load_next_character()
 
 func set_current_menu(menu : Control) -> void:
 	if current_menu:
@@ -83,15 +81,18 @@ func _close_menu() -> void:
 	current_menu = null
 
 func _open_attack_menu() -> void:
+	_load_next_character()
 	attack_menu.load_attack_container(current_character, monsters)
 	self.current_menu = attack_menu
 
 func _open_item_menu() -> void:
+	_load_next_character()
 	item_menu.character = current_character
 	item_menu.load_items()
 	self.current_menu = item_menu
 
 func open_battle_menu() -> void:
+	_load_next_character()
 	self.current_menu = battle_menu
 
 func open_battle_won_screen() -> void:
@@ -107,7 +108,6 @@ func _player_attack_selected(attack) -> void:
 	if len(player_attacks) == len(Player.party):
 		_dispatch_attacks()
 	else:
-		_load_next_character()
 		open_battle_menu()
 
 func _dispatch_attacks() -> void:
@@ -122,7 +122,7 @@ func _enemy_attacks() -> Array:
 	for monster in monsters:
 		var attack = Attack.new()
 		attack.actor = monster
-		attack.target = party[0]
+		attack.target = party[randi() % party.size()]
 		attack.attacks = [Attack.UP]
 		attack.speed = monster.stats.speed
 		attacks.append(attack)
