@@ -94,11 +94,10 @@ func _execute_attacks(attacks : Array) -> void:
 		attacker.move_to(target_position)
 		yield(attacker, "destination_reached")
 		var target : KinematicBody2D = attack.target
-		if target.stats.has_method("start_attack"):
-			target.stats.start_attack()
+		# todo: add animations
 		var attacks_in_combo = []
 		for atk in attack.attacks:
-			if target.stats.hp:
+			if target.stats.alive:
 				var num_hits = 1 # only hit once by default
 				var atk_power : int
 				var stats = attacker.stats

@@ -28,7 +28,7 @@ var combo = [] # ?? perhaps not needed anymore ??
 
 func _set_hp(_hp):
 	hp = clamp(_hp, 0, max_hp)
-	alive = hp == 0
+	alive = hp > 0
 	if not alive:
 		emit_signal("died")
 
