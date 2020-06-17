@@ -103,7 +103,7 @@ func _execute_attacks(attacks : Array) -> void:
 				var atk_power : int
 				var stats = attacker.stats
 				# todo: unify attack stat and add in equipment bonus
-				atk_power = stats.attack_lr if atk == Attack.LEFT or atk == Attack.RIGHT else stats.attack_ud
+				atk_power = stats.get_attack(atk)
 				attacks_in_combo.append(atk)
 				var combo = _check_combo(stats, attacks_in_combo)
 				if combo:

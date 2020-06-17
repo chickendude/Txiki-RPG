@@ -6,8 +6,10 @@
 script = ExtResource( 1 )
 name = "Short Sword"
 description = "A real sword!"
-attack = 20
-defense = 0
+attack_u = 0
+attack_d = 0
+defense_u = 0
+defense_d = 0
 magic = 0
 magic_defense = 0
 speed = 0

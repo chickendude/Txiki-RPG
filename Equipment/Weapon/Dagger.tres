@@ -6,8 +6,10 @@
 script = ExtResource( 1 )
 name = "Dagger"
 description = "Be careful, the blade looks sharp!"
-attack = 15
-defense = 0
+attack_u = 0
+attack_d = 0
+defense_u = 0
+defense_d = 0
 magic = 0
 magic_defense = 0
 speed = 0

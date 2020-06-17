@@ -6,8 +6,10 @@
 script = ExtResource( 1 )
 name = "Fist"
 description = "Might not look like much, but these suckers can do some damage!"
-attack = 0
-defense = 0
+attack_u = 0
+attack_d = 0
+defense_u = 0
+defense_d = 0
 magic = 0
 magic_defense = 0
 speed = 0

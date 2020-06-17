@@ -6,8 +6,10 @@
 script = ExtResource( 1 )
 name = "Ximi's Coat"
 description = "Ximi left this behind. It looks warm."
-attack = 0
-defense = 5
+attack_u = 0
+attack_d = 0
+defense_u = 0
+defense_d = 0
 magic = 0
 magic_defense = 3
 speed = 0

@@ -24,7 +24,6 @@ func load_prizes(xp : int, sils : int) -> void:
 	Player.sils += sils
 	xp_left_label.text = str(Player.xp_until_next_level())
 	next_level_label.text = str(Player.level + 1)
-	
 
 func _on_level_up():
 	level_up_container.visible = true

@@ -6,8 +6,10 @@
 script = ExtResource( 1 )
 name = "Pocket Knife"
 description = "It definitely fits in a pocket! Don't you have anything... bigger?"
-attack = 6
-defense = 0
+attack_u = 0
+attack_d = 0
+defense_u = 0
+defense_d = 0
 magic = 0
 magic_defense = 0
 speed = 0

@@ -10,7 +10,7 @@ export var mp = 0 setget _set_mp
 export var level = 0
 export var attack = 0 # base attack, weapon/equipment damage is added to this
 export var defense = 0 # base defense, equipment/armor added to this
-export (String) var immune_locations 
+export (String) var immune_locations
 export var intelligence = 0 # "magic" attack + defense
 export var speed = 0 # determine player's turn in battle + critical hits
 
@@ -44,3 +44,6 @@ func receive_attack(atk_strength, atk_level, location) -> int:
 	var damage = int(atk_strength * (atk_strength + atk_level) / (atk_strength + defense + level) * rand_range(.9, 1.1)) + 1
 	self.hp -= damage
 	return damage
+
+func get_attack(location):
+	pass

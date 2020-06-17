@@ -40,12 +40,12 @@ func _ready():
 	equipped_armor = starting_armor
 	equipped_weapon = starting_weapon
 
-func _set_hp(_hp):
-	hp = clamp(_hp, 0, max_hp)
-	if hp == 0:
-		emit_signal("player_dead")
-		Event.player_died()
-	emit_signal("hp_changed")
+#func _set_hp(_hp):
+#	hp = clamp(_hp, 0, max_hp)
+#	if hp == 0:
+#		emit_signal("player_dead")
+#		Event.player_died()
+#	emit_signal("hp_changed")
 
 func _set_xp(_xp):
 	xp = _xp
@@ -74,3 +74,12 @@ func _next_level_xp() -> int:
 
 func xp_until_next_level() -> int:
 	return _next_level_xp() - xp
+
+# stats
+
+func get_attack(location):
+	var weapon_atk := 0
+	if equipped_weapon:
+		print(equipped_weapon.name)
+		weapon_atk = equipped_weapon.attack_u if location == Attack.UP else equipped_weapon.attack_d
+	return attack + weapon_atk

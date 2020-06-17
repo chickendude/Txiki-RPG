@@ -14,3 +14,6 @@ export var Combos = []
 export (Array) var items # items the enemy can drop
 
 # perhaps add attacks / special attacks var?
+
+func get_attack(location):
+	return attack
