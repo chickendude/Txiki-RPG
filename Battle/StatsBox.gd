@@ -19,10 +19,14 @@ func load_character(_character : PartyMember):
 	$MaxHPLabel.text = str(character.max_hp)
 	$MPLabel.text = str(character.mp)
 	$MaxMPLabel.text = str(character.max_mp)
-	_on_hp_changed()
+	_update_hp_label(character.hp)
 	
-	character.connect("hp_changed", self, "_on_hp_changed")
+	var _e = character.connect("hp_changed", self, "_on_hp_changed")
 
-func _on_hp_changed():
+func _on_hp_changed(old_hp, new_hp):
 	# todo: switch to Tween for health change animation
-	$HPLabel.text = str(character.hp)
+	$Tween.interpolate_method(self, '_update_hp_label', old_hp, new_hp, 1, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+	$Tween.start()
+
+func _update_hp_label(_hp):
+	$HPLabel.text = str(int(_hp))

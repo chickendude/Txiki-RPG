@@ -7,17 +7,17 @@
 antialiased = false
 font_path = "res://data/ui/dogica.ttf"
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=2]
 size = 8
 extra_spacing_char = -2
 font_data = SubResource( 1 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 8
 extra_spacing_char = -1
 font_data = SubResource( 1 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 8
 extra_spacing_char = -2
 font_data = SubResource( 1 )
@@ -35,7 +35,7 @@ margin_left = -35.0
 margin_top = -17.0
 margin_right = 3.0
 margin_bottom = -9.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Yuji"
 __meta__ = {
@@ -47,7 +47,7 @@ margin_left = 20.0
 margin_top = -17.0
 margin_right = 35.0
 margin_bottom = -9.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "99"
 align = 1
@@ -61,7 +61,7 @@ margin_top = -3.0
 margin_right = 7.0
 margin_bottom = 3.0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "9999"
 align = 2
@@ -74,7 +74,7 @@ margin_left = 4.0
 margin_top = -3.0
 margin_right = 12.0
 margin_bottom = 3.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.384314, 0.454902, 0.501961, 1 )
 text = "/"
 __meta__ = {
@@ -87,7 +87,7 @@ margin_top = -3.0
 margin_right = 36.0
 margin_bottom = 3.0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "9999"
 __meta__ = {
@@ -100,7 +100,7 @@ margin_top = 10.0
 margin_right = 7.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "9999"
 align = 2
@@ -113,7 +113,7 @@ margin_left = 4.0
 margin_top = 10.0
 margin_right = 12.0
 margin_bottom = 16.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.384314, 0.454902, 0.501961, 1 )
 text = "/"
 __meta__ = {
@@ -126,9 +126,11 @@ margin_top = 10.0
 margin_right = 36.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "9999"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Tween" type="Tween" parent="."]

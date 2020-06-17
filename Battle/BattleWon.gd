@@ -8,6 +8,7 @@ onready var level_up_container = $NinePatchRect/VBoxContainer/LevelUpContainer
 onready var level_label = $NinePatchRect/VBoxContainer/LevelUpContainer/HBoxContainer4/LevelLabel
 
 func _ready():
+	# todo: connect to party members' level up signals
 	var _e = Player.connect("level_up", self, "_on_level_up")
 	level_up_container.visible = false
 	
