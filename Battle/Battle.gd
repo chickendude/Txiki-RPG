@@ -40,7 +40,7 @@ func _add_monsters():
 
 func _get_monster_position(index : int) -> Vector2:
 	var num_monsters = len(monsters)
-	var starting_y = screen_h / 2.0 - num_monsters * Y_SPACING / 2.0 + Y_SPACING / 2
+	var starting_y = screen_h / 2 - num_monsters * Y_SPACING / 2 + Y_SPACING / 2
 	var x
 	if num_monsters <= 2:
 		x = X1
@@ -130,7 +130,7 @@ func _execute_attacks(attacks : Array) -> void:
 		attacker.move_to(attacker.starting_position)
 		yield(attacker, "destination_reached")
 	if _enemies_left():
-		ui.open_battle_menu()
+		ui.reload_battle_ui()
 	else:
 		_battle_won()
 

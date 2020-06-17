@@ -42,6 +42,11 @@ func _input(delta) -> void:
 func load_battle_ui(_party : Array, _monsters : Array):
 	party = _party
 	monsters = _monsters
+	reload_battle_ui()
+
+func reload_battle_ui():
+	current_character = party[0]
+	_open_battle_menu()
 
 func set_current_menu(menu : Control) -> void:
 	if current_menu:
@@ -71,8 +76,10 @@ func _check_all_keys_released():
 
 func _load_next_character():
 	# todo: handle fainted characters and move _dispatch_attacks call here
-	var index = len(player_attacks)
-	current_character = party[index]
+	var index = party.find(current_character)
+	current_character = party[index + 1]
+	if not current_character.alive:
+		_player_attack_selected(null)
 
 # menu functions
 
@@ -81,18 +88,18 @@ func _close_menu() -> void:
 	current_menu = null
 
 func _open_attack_menu() -> void:
-	_load_next_character()
+#	_load_next_character()
 	attack_menu.load_attack_container(current_character, monsters)
 	self.current_menu = attack_menu
 
 func _open_item_menu() -> void:
-	_load_next_character()
+#	_load_next_character()
 	item_menu.character = current_character
 	item_menu.load_items()
 	self.current_menu = item_menu
 
-func open_battle_menu() -> void:
-	_load_next_character()
+func _open_battle_menu() -> void:
+#	_load_next_character()
 	self.current_menu = battle_menu
 
 func open_battle_won_screen() -> void:
@@ -102,13 +109,14 @@ func open_battle_won_screen() -> void:
 
 # handling attacks
 
-func _player_attack_selected(attack) -> void:
+func _player_attack_selected(attack : Attack) -> void:
 	player_attacks.append(attack)
 	# todo: handle fainted party members
 	if len(player_attacks) == len(Player.party):
 		_dispatch_attacks()
 	else:
-		open_battle_menu()
+		_load_next_character()
+		_open_battle_menu()
 
 func _dispatch_attacks() -> void:
 	_close_menu()
