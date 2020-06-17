@@ -8,10 +8,9 @@ export var hp = 0 setget _set_hp
 export var max_mp = 0
 export var mp = 0 setget _set_mp
 export var level = 0
-export var attack_ud = 0 # upper and lower attacks (kicks)
-export var attack_lr = 0 # mid attacks (punches)
-export var defense_u = 0 # most attacks except low/down attacks
-export var defense_d = 0 # attacks aimed at the lower body (legs)
+export var attack = 0 # base attack, weapon/equipment damage is added to this
+export var defense = 0 # base defense, equipment/armor added to this
+export (String) var immune_locations 
 export var intelligence = 0 # "magic" attack + defense
 export var speed = 0 # determine player's turn in battle + critical hits
 
@@ -39,11 +38,7 @@ func _set_mp(_mp):
 # battle functions
 
 func receive_attack(atk_strength, atk_level, location) -> int:
-	var defense = defense_u
-	if location == Attack.DOWN:
-		defense = defense_d
-	# if defense = 0 that means it is immune to that attack
-	if not defense:
+	if Attack.Letters[location] in immune_locations:
 		return 0
 	# a.atk * (a.atk + a.level) / (a.atk + b.def + b.level) * rand(.9, 1.1)
 	var damage = int(atk_strength * (atk_strength + atk_level) / (atk_strength + defense + level) * rand_range(.9, 1.1)) + 1

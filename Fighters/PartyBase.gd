@@ -59,10 +59,8 @@ func _level_up(next_level_xp) -> void:
 	level += 1
 	max_hp += 5
 	hp += 5
-	attack_lr += 2
-	attack_ud += 2
-	defense_u += 2
-	defense_d += 2
+	attack += 2
+	defense += 2
 	speed += 2
 	attack_bar += 4.5
 	emit_signal("level_up")
