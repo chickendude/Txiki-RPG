@@ -10,6 +10,7 @@ func _ready():
 	margin_left = 320
 
 func play_animation():
+	visible = true
 	rect_position.x = 0
 	margin_left = 320
 	margin_right = 0
