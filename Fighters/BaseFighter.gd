@@ -1,6 +1,6 @@
 extends Resource
 
-class_name StatBase
+class_name BaseFighter
 
 export var name = ""
 export var max_hp = 0

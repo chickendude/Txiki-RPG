@@ -133,7 +133,7 @@ func _execute_attacks(attacks : Array) -> void:
 	else:
 		_battle_won()
 
-func _check_combo(stats : StatBase, attacks_in_combo : Array):
+func _check_combo(stats : BaseFighter, attacks_in_combo : Array):
 	var combo_letters = ""
 	for attack in attacks_in_combo:
 		combo_letters += Attack.Letters[attack]

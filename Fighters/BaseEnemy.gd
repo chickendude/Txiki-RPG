@@ -1,4 +1,4 @@
-extends StatBase
+extends BaseFighter
 
 class_name Enemy
 

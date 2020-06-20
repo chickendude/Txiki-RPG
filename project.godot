@@ -15,14 +15,19 @@ _global_script_classes=[ {
 "path": "res://Equipment/Attack.gd"
 }, {
 "base": "Resource",
+"class": "BaseFighter",
+"language": "GDScript",
+"path": "res://Fighters/BaseFighter.gd"
+}, {
+"base": "Resource",
 "class": "BaseStats",
 "language": "GDScript",
 "path": "res://Equipment/BaseStats.gd"
 }, {
-"base": "StatBase",
+"base": "BaseFighter",
 "class": "Enemy",
 "language": "GDScript",
-"path": "res://Fighters/EnemyBase.gd"
+"path": "res://Fighters/BaseEnemy.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Fighter",
@@ -44,26 +49,21 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Singletons/Maps.gd"
 }, {
-"base": "StatBase",
+"base": "BaseFighter",
 "class": "PartyMember",
 "language": "GDScript",
-"path": "res://Fighters/PartyBase.gd"
-}, {
-"base": "Resource",
-"class": "StatBase",
-"language": "GDScript",
-"path": "res://Fighters/StatBase.gd"
+"path": "res://Fighters/BaseParty.gd"
 } ]
 _global_script_class_icons={
 "Attack": "",
+"BaseFighter": "",
 "BaseStats": "",
 "Enemy": "",
 "Fighter": "",
 "Item": "",
 "ItemAttack": "",
 "Maps": "",
-"PartyMember": "",
-"StatBase": ""
+"PartyMember": ""
 }
 
 [application]

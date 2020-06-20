@@ -1,7 +1,8 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
-[ext_resource path="res://Fighters/EnemyBase.gd" type="Script" id=1]
+[ext_resource path="res://Fighters/BaseEnemy.gd" type="Script" id=1]
 [ext_resource path="res://data/enemies/lost_soul.png" type="Texture" id=2]
+
 
 [resource]
 resource_local_to_scene = true

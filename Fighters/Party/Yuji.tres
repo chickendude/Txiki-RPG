@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
-[ext_resource path="res://Fighters/PartyBase.gd" type="Script" id=1]
+[ext_resource path="res://Fighters/BaseParty.gd" type="Script" id=1]
 [ext_resource path="res://data/characters/yuji.png" type="Texture" id=2]
 
 [resource]
@@ -8,12 +8,9 @@ script = ExtResource( 1 )
 name = "Yuji"
 max_hp = 115
 hp = 115
-max_mp = 0
-mp = 0
 level = 1
 attack = 10
 defense = 8
-immune_locations = ""
 intelligence = 10
 speed = 10
 sprite = ExtResource( 2 )
@@ -50,6 +47,4 @@ Combos = [ {
 "num_hits": 3,
 "power": 1.2
 } ]
-xp = 0
-total_xp = 0
 attack_bar = 50
