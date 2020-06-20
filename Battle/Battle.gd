@@ -107,9 +107,8 @@ func _execute_attacks(attacks : Array) -> void:
 				var combo = _check_combo(stats, attacks_in_combo)
 				if combo:
 					if not combo.name in stats.combos_learned:
-						new_combo.play_animation()
-						yield(new_combo, "animation_done")
 						stats.combos_learned.append(combo.name)
+						yield(new_combo.play_animation(), "completed")
 					var combo_node = DamageNode.instance()
 					combo_node.position = Vector2(target.position.x - randi() % 6, target.position.y  - randi() % 6 - 34)
 					combo_node.set_text(combo.name)
