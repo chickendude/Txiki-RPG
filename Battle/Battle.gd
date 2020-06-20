@@ -85,6 +85,7 @@ func _execute_attacks(attacks : Array) -> void:
 		if not attack.actor.alive:
 			continue
 		var attacker : Fighter = attack.actor
+		var target : KinematicBody2D = attack.target
 		var target_position : Vector2 = attack.target.position
 		attacker.starting_position = attacker.position
 		if attacker.position.x > target_position.x:
@@ -93,7 +94,6 @@ func _execute_attacks(attacks : Array) -> void:
 			target_position.x -= 12
 		attacker.move_to(target_position)
 		yield(attacker, "destination_reached")
-		var target : KinematicBody2D = attack.target
 		# todo: add animations
 		var attacks_in_combo = []
 		for atk in attack.attacks:
@@ -115,15 +115,7 @@ func _execute_attacks(attacks : Array) -> void:
 					add_child(combo_node)
 					atk_power *= combo.power
 					num_hits = combo.num_hits
-				for _i in range(num_hits):
-					if target.stats.hp:
-						var damage = target.stats.receive_attack(atk_power, stats.level, atk)
-						print(attacker.stats.name + " atk: " + str(damage) + ", " + target.stats.name + " hp left: " + str(target.stats.hp))
-						var damage_node = DamageNode.instance()
-						damage_node.position = Vector2(target.position.x - randi() % 6, target.position.y  - randi() % 6 - 24)
-						damage_node.set_amt(damage)
-						add_child(damage_node)
-						yield(get_tree().create_timer(.2), "timeout")
+				yield(_attack_target(target, attacker, atk_power, atk, num_hits), "completed")
 				yield(get_tree().create_timer(.4), "timeout")
 		attacker.move_to(attacker.starting_position)
 		yield(attacker, "destination_reached")
@@ -131,6 +123,17 @@ func _execute_attacks(attacks : Array) -> void:
 		ui.reload_battle_ui()
 	else:
 		_battle_won()
+
+func _attack_target(target : Fighter, attacker : Fighter, atk_power : int, atk_location : int, num_hits : int):
+	for _i in range(num_hits):
+		if target.stats.hp:
+			var damage = target.stats.receive_attack(atk_power, attacker.stats.level, atk_location)
+			print(attacker.stats.name + " atk: " + str(damage) + ", " + target.stats.name + " hp left: " + str(target.stats.hp))
+			var damage_node = DamageNode.instance()
+			damage_node.position = Vector2(target.position.x - randi() % 6, target.position.y  - randi() % 6 - 24)
+			damage_node.set_amt(damage)
+			add_child(damage_node)
+			yield(get_tree().create_timer(.2), "timeout")
 
 func _check_combo(stats : BaseFighter, attacks_in_combo : Array):
 	var combo_letters = ""
