@@ -21,10 +21,12 @@ func input(_delta):
 func load_prizes(xp : int, sils : int) -> void:
 	xp_label.text = str(xp)
 	sil_label.text = str(sils)
-	Player.xp += xp
+	for member in Player.party:
+		member.xp += xp
+		xp_left_label.text = str(member.xp_until_next_level())
+		next_level_label.text = str(member.level + 1)
+
 	Player.sils += sils
-	xp_left_label.text = str(Player.xp_until_next_level())
-	next_level_label.text = str(Player.level + 1)
 
 func _on_level_up():
 	level_up_container.visible = true
