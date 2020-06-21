@@ -1,8 +1,8 @@
 extends Node
 
 # restore hp
-var tissue = preload("res://Items/Restore/Tissue.tres")
-var handkerchief = preload("res://Items/Restore/Handkerchief.tres")
+var tissue = preload("res://Inventory/Items/Restore/Tissue.tres")
+var handkerchief = preload("res://Inventory/Items/Restore/Handkerchief.tres")
 
 var all = {
 	'tissue': tissue,

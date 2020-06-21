@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "Attack",
 "language": "GDScript",
-"path": "res://Equipment/Attack.gd"
+"path": "res://Inventory/Attack.gd"
 }, {
 "base": "Resource",
 "class": "BaseFighter",
@@ -22,7 +22,7 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "BaseStats",
 "language": "GDScript",
-"path": "res://Equipment/BaseStats.gd"
+"path": "res://Inventory/BaseStats.gd"
 }, {
 "base": "BaseFighter",
 "class": "Enemy",
@@ -37,12 +37,12 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "Item",
 "language": "GDScript",
-"path": "res://Items/ItemBase.gd"
+"path": "res://Inventory/Items/ItemBase.gd"
 }, {
 "base": "Reference",
 "class": "ItemAttack",
 "language": "GDScript",
-"path": "res://Items/Item.gd"
+"path": "res://Inventory/Items/Item.gd"
 }, {
 "base": "Node",
 "class": "Maps",

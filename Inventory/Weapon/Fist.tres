@@ -1,11 +1,11 @@
 [gd_resource type="Resource" load_steps=2 format=2]
 
-[ext_resource path="res://Equipment/BaseStats.gd" type="Script" id=1]
+[ext_resource path="res://Inventory/BaseStats.gd" type="Script" id=1]
 
 [resource]
 script = ExtResource( 1 )
-name = "Dagger"
-description = "Be careful, the blade looks sharp!"
+name = "Fist"
+description = "Might not look like much, but these suckers can do some damage!"
 attack_u = 0
 attack_d = 0
 defense_u = 0

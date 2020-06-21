@@ -86,6 +86,8 @@ func _execute_attacks(attacks : Array) -> void:
 			continue
 		var attacker : Fighter = attack.actor
 		var target : KinematicBody2D = attack.target
+		if not target.stats.alive:
+			break
 		var target_position : Vector2 = attack.target.position
 		attacker.starting_position = attacker.position
 		if attacker.position.x > target_position.x:
