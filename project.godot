@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "Attack",
 "language": "GDScript",
-"path": "res://Inventory/Attack.gd"
+"path": "res://Battle/Attack.gd"
 }, {
 "base": "Resource",
 "class": "BaseFighter",

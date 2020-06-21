@@ -1,6 +1,6 @@
 extends Control
 
-const Attack = preload("res://Equipment/Attack.gd")
+const Attack = preload("res://Battle/Attack.gd")
 const AttackArrow = preload("res://Battle/AttackArrow.tscn")
 
 const ARROW_W = 12

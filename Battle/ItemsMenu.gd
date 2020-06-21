@@ -6,7 +6,7 @@ onready var description_label = $Node2D/ItemDescriptionContainer/ItemDescription
 onready var description_container = $Node2D/ItemDescriptionContainer
 
 const PopupMenu = preload("res://UI/MenuPopup.tscn")
-const ItemAttack = preload("res://Items/Item.gd")
+const ItemAttack = preload("res://Inventory/Items/Item.gd")
 
 const TEXT_X = 7
 const TEXT_Y = 7

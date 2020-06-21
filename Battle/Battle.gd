@@ -65,7 +65,7 @@ func _all_attacks_selected(player_attacks : Array, enemy_attacks : Array, player
 	attacks += enemy_attacks
 	attacks.sort_custom(self, "_sort_by_speed")
 	_use_items(player_items)
-	_execute_attacks(attacks)
+	_process_attacks(attacks)
 	
 func _sort_by_speed(a, b):
 	return a.speed > b.speed
@@ -80,7 +80,7 @@ func _use_items(items : Array) -> void:
 		add_child(hp_node)
 		yield(get_tree().create_timer(2), "timeout")
 
-func _execute_attacks(attacks : Array) -> void:
+func _process_attacks(attacks : Array) -> void:
 	for attack in attacks:
 		if not attack.actor.alive:
 			continue
@@ -96,35 +96,38 @@ func _execute_attacks(attacks : Array) -> void:
 			target_position.x -= 12
 		attacker.move_to(target_position)
 		yield(attacker, "destination_reached")
-		# todo: add animations
-		var attacks_in_combo = []
-		for atk in attack.attacks:
-			if target.stats.alive:
-				var num_hits = 1 # only hit once by default
-				var atk_power : int
-				var stats = attacker.stats
-				# todo: unify attack stat and add in equipment bonus
-				atk_power = stats.get_attack(atk)
-				attacks_in_combo.append(atk)
-				var combo = _check_combo(stats, attacks_in_combo)
-				if combo:
-					if not combo.name in stats.combos_learned:
-						stats.combos_learned.append(combo.name)
-						yield(new_combo.play_animation(), "completed")
-					var combo_node = DamageNode.instance()
-					combo_node.position = Vector2(target.position.x - randi() % 6, target.position.y  - randi() % 6 - 34)
-					combo_node.set_text(combo.name)
-					add_child(combo_node)
-					atk_power *= combo.power
-					num_hits = combo.num_hits
-				yield(_attack_target(target, attacker, atk_power, atk, num_hits), "completed")
-				yield(get_tree().create_timer(.4), "timeout")
+		yield(_execute_attacks(attacker, target, attack.attacks), "completed")
 		attacker.move_to(attacker.starting_position)
 		yield(attacker, "destination_reached")
 	if _enemies_left():
 		ui.reload_battle_ui()
 	else:
 		_battle_won()
+
+func _execute_attacks(attacker : Fighter, target : Fighter, attacks : Array):
+	# todo: add animations
+	var attacks_in_combo = []
+	for attack in attacks:
+		if target.stats.alive:
+			var num_hits = 1 # only hit once by default
+			var atk_power : int
+			var stats = attacker.stats
+			# todo: unify attack stat and add in equipment bonus
+			atk_power = stats.get_attack(attack)
+			attacks_in_combo.append(attack)
+			var combo = _check_combo(stats, attacks_in_combo)
+			if combo:
+				if not combo.name in stats.combos_learned:
+					stats.combos_learned.append(combo.name)
+					yield(new_combo.play_animation(), "completed")
+				var combo_node = DamageNode.instance()
+				combo_node.position = Vector2(target.position.x - randi() % 6, target.position.y  - randi() % 6 - 34)
+				combo_node.set_text(combo.name)
+				add_child(combo_node)
+				atk_power *= combo.power
+				num_hits = combo.num_hits
+			yield(_attack_target(target, attacker, atk_power, attack, num_hits), "completed")
+			yield(get_tree().create_timer(.4), "timeout")
 
 func _attack_target(target : Fighter, attacker : Fighter, atk_power : int, atk_location : int, num_hits : int):
 	for _i in range(num_hits):
