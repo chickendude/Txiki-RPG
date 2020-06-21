@@ -85,10 +85,14 @@ func _process_attacks(attacks : Array) -> void:
 		if not attack.actor.alive:
 			continue
 		var attacker : Fighter = attack.actor
-		var target : KinematicBody2D = attack.target
-		if not target.stats.alive:
+		var target : KinematicBody2D 
+		for t in attack.targets:
+			if t.stats.alive:
+				target = t
+				break
+		if not target:
 			break
-		var target_position : Vector2 = attack.target.position
+		var target_position : Vector2 = target.position
 		attacker.starting_position = attacker.position
 		if attacker.position.x > target_position.x:
 			target_position.x += 12
@@ -144,7 +148,6 @@ func _check_combo(stats : BaseFighter, attacks_in_combo : Array):
 	var combo_letters = ""
 	for attack in attacks_in_combo:
 		combo_letters += Attack.Letters[attack]
-	print(combo_letters)
 	for combo in stats.Combos:
 		if len(combo_letters) >= len(combo.moves):
 			var index = len(combo_letters) - len(combo.moves)

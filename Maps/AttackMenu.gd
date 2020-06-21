@@ -125,8 +125,12 @@ func _attack_selected():
 	var attack = Attack.new()
 	attack.attacks = attacks
 	attack.actor = character
-	attack.target = monster
 	attack.speed = char_info.speed
+	# add main target and backup targets
+	attack.targets.append(monster)
+	for i in range(len(monsters)):
+		if i != target_index:
+			attack.targets.append(monsters[i])
 	char_info.prev_attacks = attacks
 	print("attacking " + monster.stats.name + " with hp: " + str(monster.stats.hp))
 	emit_signal("attack_selected", attack)

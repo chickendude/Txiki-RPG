@@ -8,12 +8,9 @@ script = ExtResource( 1 )
 name = "Ximi"
 max_hp = 80
 hp = 80
-max_mp = null
-mp = null
 level = 5
 attack = 40
 defense = 28
-immune_locations = null
 intelligence = 20
 speed = 25
 sprite = ExtResource( 2 )
@@ -50,6 +47,4 @@ Combos = [ {
 "num_hits": 3,
 "power": 1.2
 } ]
-xp = null
-total_xp = null
 attack_bar = 36

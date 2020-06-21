@@ -48,7 +48,7 @@ func use_item(character : PartyMember, item_name : String) -> void:
 	if items.has(item_name):
 		items[item_name] -= 1
 		if items[item_name] <= 0:
-			items.erase(item_name)
+			var _e = items.erase(item_name)
 		var item = Items.all[item_name]
 		if item.permanent:
 			character.max_hp += item.hp

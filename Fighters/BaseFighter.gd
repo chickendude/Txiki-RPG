@@ -45,5 +45,5 @@ func receive_attack(atk_strength, atk_level, location) -> int:
 	self.hp -= damage
 	return damage
 
-func get_attack(location):
+func get_attack(_location):
 	pass

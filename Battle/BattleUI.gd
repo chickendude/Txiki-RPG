@@ -130,9 +130,13 @@ func _enemy_attacks() -> Array:
 	for monster in monsters:
 		var attack = Attack.new()
 		attack.actor = monster
-		attack.target = party[randi() % party.size()]
 		attack.attacks = [Attack.UP]
 		attack.speed = monster.stats.speed
+		var first_choice = randi() % party.size()
+		attack.targets.append(party[first_choice])
+		for i in range(len(party)):
+			if i != first_choice:
+				attack.targets.append(party[i])
 		attacks.append(attack)
 	return attacks
 
