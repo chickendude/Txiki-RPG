@@ -146,8 +146,10 @@ func _check_combo(stats : BaseFighter, attacks_in_combo : Array):
 		combo_letters += Attack.Letters[attack]
 	print(combo_letters)
 	for combo in stats.Combos:
-		if combo.moves in combo_letters:
-			return combo
+		if len(combo_letters) >= len(combo.moves):
+			var index = len(combo_letters) - len(combo.moves)
+			if combo.moves == combo_letters.right(index):
+				return combo
 	return null
 
 func _enemies_left() -> bool:

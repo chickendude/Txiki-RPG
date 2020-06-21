@@ -3,7 +3,7 @@ extends BaseFighter
 class_name PartyMember
 
 export var Combos = [
-	{'moves': "UDU", 'name': "Clockwheel", 'power': 1.2, 'num_hits': 2},
+	{'moves': "RDL", 'name': "Clockwheel", 'power': 1.2, 'num_hits': 2},
 	{'moves': "LRU", 'name': "Slobdash", 'power': 1.2, 'num_hits': 2},
 	{'moves': "RRD", 'name': "Hellthy", 'power': .9, 'num_hits': 4},
 	{'moves': "DUU", 'name': "Summer Salt", 'power': 1.2, 'num_hits': 2},
