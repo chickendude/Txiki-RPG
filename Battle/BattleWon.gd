@@ -22,7 +22,8 @@ func load_prizes(xp : int, sils : int) -> void:
 	xp_label.text = str(xp)
 	sil_label.text = str(sils)
 	for member in Player.party:
-		member.xp += xp
+		if member.alive:
+			member.xp += xp
 		xp_left_label.text = str(member.xp_until_next_level())
 		next_level_label.text = str(member.level + 1)
 
