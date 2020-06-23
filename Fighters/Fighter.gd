@@ -7,8 +7,9 @@ export (Resource) var stats
 const SPEED = 200
 
 onready var sprite = $Sprite
-onready var tween_move = $TweenMove
-onready var tween_blink = $TweenBlink
+onready var tween = $TweenMove
+onready var animation_player = $AnimationPlayer
+onready var cursor = $Cursor
 
 var starting_position : Vector2
 var velocity = Vector2.ZERO
@@ -22,8 +23,12 @@ func _ready():
 	sprite.texture = stats.sprite
 	sprite.hframes = stats.h_frames
 	sprite.vframes = stats.v_frames
+	var height = sprite.texture.get_size().y / sprite.vframes
+	var width = sprite.texture.get_size().x / sprite.hframes
+	cursor.position.y = -height/2 + 2
+	cursor.position.x = -width/2
+	cursor.visible = false
 	stats.connect("died", self, "_on_died")
-#	tween.connect("tween_completed", self, "_tween_completed")
 
 func _on_died():
 	print("Oh no, hil naiz :'(")
@@ -31,21 +36,20 @@ func _on_died():
 	visible = false
 
 func move_to(destination):
-	tween_move.interpolate_property(self, "position", position, destination, .6, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
-	tween_move.start()
-	yield(tween_move, "tween_completed")
+	tween.interpolate_property(self, "position", position, destination, .6, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
+	tween.start()
+	yield(tween, "tween_completed")
 	emit_signal("destination_reached")
 
 func _tween_completed(_obj, _key):
 	emit_signal("destination_reached")
 
 func start_highlight():
-	tween_blink.repeat = true
-	tween_blink.interpolate_property(self, 'modulate', Color(1,1,1,1), Color(.8, .8, .8, 1), 1, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
-	tween_blink.start()
+	cursor.visible = true
+	animation_player.play("Blink")
 
 func end_highlight():
-	tween_blink.repeat = false
-	yield(tween_blink, "tween_completed")
-#	tween_blink.stop_all()
-	modulate = Color(1, 1, 1, 1)
+	cursor.visible = false
+	animation_player.stop()
+	sprite.modulate = Color(1, 1, 1, 1)
+
