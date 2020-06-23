@@ -35,9 +35,10 @@ func load_attack_container(_character : Fighter, _monsters : Array) -> void:
 	char_info = character.stats
 	monsters = _monsters
 	_clear_attacks()
-	attacks = char_info.prev_attacks
-	for atk in attacks:
+#	attacks = char_info.prev_attacks
+	for atk in char_info.prev_attacks:
 		_add_attack(atk)
+	attacks_preloaded = true
 	var screen_w = ProjectSettings.get_setting("display/window/size/width")
 	attack_container.rect_position.x = screen_w / 2 - char_info.attack_bar / 2 - PADDING
 	attack_container.rect_size.x = char_info.attack_bar + PADDING * 2
@@ -46,6 +47,7 @@ func load_attack_container(_character : Fighter, _monsters : Array) -> void:
 		attack_container.get_child(attack_container.get_child_count()-1).queue_free()
 
 func _clear_attacks():
+	attacks_preloaded = false
 	attacks = []
 	for child in  attack_container.get_children():
 		child.queue_free()
@@ -74,7 +76,6 @@ func _attack_keys() -> void:
 func _add_attack(direction : int) -> void:
 	if attacks_preloaded:
 		_clear_attacks()
-		attacks_preloaded = false
 	if len(attacks) >= int(char_info.attack_bar / ARROW_W):
 		return
 	var attack_arrow = AttackArrow.instance()
@@ -118,7 +119,6 @@ func _highlight_target():
 	
 func _attack_selected():
 	select_target = false
-	attacks_preloaded = true
 	monsters[target_index].modulate = Color(1, 1, 1, 1)
 	monsters[prev_target_index].modulate = Color(1, 1, 1, 1)
 	var monster = monsters[target_index]
