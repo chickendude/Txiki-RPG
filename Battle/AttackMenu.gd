@@ -35,7 +35,6 @@ func load_attack_container(_character : Fighter, _monsters : Array) -> void:
 	char_info = character.stats
 	monsters = _monsters
 	_clear_attacks()
-#	attacks = char_info.prev_attacks
 	for atk in char_info.prev_attacks:
 		_add_attack(atk)
 	attacks_preloaded = true

@@ -28,7 +28,7 @@ func _ready() -> void:
 	self.current_menu = battle_menu
 	battle_menu.connect("open_attack_menu", self, "_open_attack_menu")
 	battle_menu.connect("open_item_menu", self, "_open_item_menu")
-	attack_menu.connect("back_button", self, "open_battle_menu")
+	attack_menu.connect("back_button", self, "_open_battle_menu")
 	attack_menu.connect("attack_selected", self, "_player_attack_selected")
 	item_menu.connect("close_menu", self, "open_battle_menu")
 	item_menu.connect("item_selected", self, "_on_item_selected")
@@ -46,6 +46,7 @@ func load_battle_ui(_party : Array, _monsters : Array):
 
 func reload_battle_ui():
 	current_character = party[0]
+	current_character.start_highlight()
 	_open_battle_menu()
 
 func set_current_menu(menu : Control) -> void:
@@ -77,7 +78,9 @@ func _check_all_keys_released():
 func _load_next_character():
 	# todo: handle fainted characters and move _dispatch_attacks call here
 	var index = party.find(current_character)
+	current_character.end_highlight()
 	current_character = party[index + 1]
+	current_character.start_highlight()
 	if not current_character.alive:
 		_player_attack_selected(null)
 
@@ -113,6 +116,7 @@ func _player_attack_selected(attack : Attack) -> void:
 	player_attacks.append(attack)
 	# todo: handle fainted party members
 	if len(player_attacks) == len(Player.party):
+		current_character.end_highlight()
 		_dispatch_attacks()
 	else:
 		_load_next_character()

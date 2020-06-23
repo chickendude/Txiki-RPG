@@ -14,4 +14,8 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -6 )
 
-[node name="Tween" type="Tween" parent="."]
+[node name="TweenMove" type="Tween" parent="."]
+
+[node name="TweenBlink" type="Tween" parent="."]
+repeat = true
+playback/repeat = true
