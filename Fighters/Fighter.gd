@@ -7,7 +7,7 @@ export (Resource) var stats
 const SPEED = 200
 
 onready var sprite = $Sprite
-onready var tween = $TweenMove
+onready var tween = $Tween
 onready var animation_player = $AnimationPlayer
 onready var cursor = $Cursor
 
