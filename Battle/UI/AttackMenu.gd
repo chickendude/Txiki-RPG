@@ -1,7 +1,7 @@
 extends Control
 
 const Attack = preload("res://Battle/Attack.gd")
-const AttackArrow = preload("res://Battle/AttackArrow.tscn")
+const AttackArrow = preload("res://Battle/UI/AttackArrow.tscn")
 
 const ARROW_W = 12
 const PADDING = 3

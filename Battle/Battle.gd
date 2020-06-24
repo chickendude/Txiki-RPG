@@ -5,8 +5,8 @@ onready var new_combo = $BattleUI/NewCombo
 
 var Fighter = preload("res://Fighters/Fighter.tscn")
 var Yuji = preload("res://Player/Yuji.tscn")
-var DamageNode = preload("res://Battle/DamageNode.tscn")
-var HPNode = preload("res://Battle/HPNode.tscn")
+var DamageNode = preload("res://Battle/Effects/DamageNode.tscn")
+var HPNode = preload("res://Battle/Effects/HPNode.tscn")
 
 var monsters = []
 var monster_objs = []
