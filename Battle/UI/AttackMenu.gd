@@ -1,6 +1,6 @@
 extends Control
 
-const Attack = preload("res://Battle/Attack.gd")
+const Attack = preload("res://Battle/Classes/Attack.gd")
 const AttackArrow = preload("res://Battle/UI/AttackArrow.tscn")
 
 const ARROW_W = 12
@@ -38,6 +38,8 @@ func load_attack_container(_character : Fighter, _monsters : Array) -> void:
 	for atk in char_info.prev_attacks:
 		_add_attack(atk)
 	attacks_preloaded = true
+	prev_target_index = character.prev_target_index
+	target_index = character.prev_target_index
 	var screen_w = ProjectSettings.get_setting("display/window/size/width")
 	attack_container.rect_position.x = screen_w / 2 - char_info.attack_bar / 2 - PADDING
 	attack_container.rect_size.x = char_info.attack_bar + PADDING * 2
@@ -81,8 +83,8 @@ func _add_attack(direction : int) -> void:
 	attack_arrow.frame = direction
 	attack_arrow.position.x = len(attacks) * ARROW_W + PADDING
 	attack_arrow.position.y = PADDING
-	attacks.append(direction)
 	attack_container.add_child(attack_arrow)
+	attacks.append(direction)
 
 # target selection
 
@@ -120,6 +122,7 @@ func _attack_selected():
 	select_target = false
 	monsters[target_index].modulate = Color(1, 1, 1, 1)
 	monsters[prev_target_index].modulate = Color(1, 1, 1, 1)
+	character.prev_target_index = prev_target_index
 	var monster = monsters[target_index]
 	var attack = Attack.new()
 	attack.attacks = attacks

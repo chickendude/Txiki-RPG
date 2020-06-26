@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-const Attack = preload("res://Battle/Attack.gd")
+const Attack = preload("res://Battle/Classes/Attack.gd")
 
 onready var battle_menu = $BattleMenu
 onready var attack_menu = $AttackMenu

@@ -19,7 +19,6 @@ func set_amt(amt):
 	text = str(amt)
 
 func set_direction(direction):
-	print(direction)
 	start_pos = Vector2(rand_range(1, -1), rand_range(1, -1))
 	end_pos = Vector2(rand_range(6 * direction, 3 * direction), rand_range(-4, -7))
 

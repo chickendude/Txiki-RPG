@@ -14,7 +14,7 @@
 [ext_resource path="res://Battle/Battle.gd" type="Script" id=12]
 [ext_resource path="res://Battle/UI/ItemsMenu.gd" type="Script" id=13]
 [ext_resource path="res://Battle/UI/BattleUI.gd" type="Script" id=14]
-[ext_resource path="res://Battle/BattleWon.gd" type="Script" id=15]
+[ext_resource path="res://Battle/UI/BattleWon.gd" type="Script" id=15]
 [ext_resource path="res://Battle/UI/Stats.gd" type="Script" id=16]
 [ext_resource path="res://Battle/UI/StatsBox.tscn" type="PackedScene" id=17]
 

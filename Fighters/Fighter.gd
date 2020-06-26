@@ -13,6 +13,7 @@ onready var cursor = $Cursor
 
 var starting_position : Vector2
 var velocity = Vector2.ZERO
+var prev_target_index := 0
 
 var alive = true
 

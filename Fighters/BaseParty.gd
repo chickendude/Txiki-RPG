@@ -22,11 +22,8 @@ export var attack_bar = 0
 var starting_armor = Equipment.t_shirt
 var starting_weapon = Equipment.fist
 
-#var weapons = []
-#var armor = []
 var combos_learned = []
 var prev_attacks = []
-#var items = {}
 var equipped_weapon = null
 var equipped_armor = null
 
