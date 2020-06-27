@@ -6,7 +6,7 @@ onready var description_label = $Node2D/ItemDescriptionContainer/ItemDescription
 onready var description_container = $Node2D/ItemDescriptionContainer
 
 const PopupMenu = preload("res://UI/MenuPopup.tscn")
-const ItemAttack = preload("res://Inventory/Items/Item.gd")
+const ItemAttack = preload("res://Battle/Classes/Item.gd")
 
 const TEXT_X = 7
 const TEXT_Y = 7
@@ -24,7 +24,7 @@ func _ready():
 	cursor.position.x = TEXT_X
 	_update_description()
 
-func _unhandled_input(_event):
+func input(_event):
 	accept_event()
 	_item_select_keys()
 

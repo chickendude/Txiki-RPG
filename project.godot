@@ -42,7 +42,7 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "ItemAttack",
 "language": "GDScript",
-"path": "res://Inventory/Items/Item.gd"
+"path": "res://Battle/Classes/Item.gd"
 }, {
 "base": "Node",
 "class": "Maps",
