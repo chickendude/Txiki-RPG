@@ -33,11 +33,12 @@ func _ready() -> void:
 	item_menu.connect("close_menu", self, "open_battle_menu")
 	item_menu.connect("item_selected", self, "_on_item_selected")
 
-func _input(delta) -> void:
+func _unhandled_key_input(event) -> void:
+#func _input(delta):
 	if not starting_keys_released:
 		_check_all_keys_released()
 	elif current_menu and current_menu.has_method("input"):
-		current_menu.input(delta)
+		current_menu.input(event)
 
 func load_battle_ui(_party : Array, _monsters : Array):
 	party = _party

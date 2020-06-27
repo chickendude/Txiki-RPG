@@ -34,7 +34,7 @@ func input(_event):
 	else:
 		_highlight_button(null)
 	
-	if Input.is_action_just_released("battle_attack"):
+	if Input.is_action_just_released("battle_attack") or Input.is_action_pressed("ui_accept"):
 		emit_signal("open_attack_menu")
 	if Input.is_action_just_released("battle_item"):
 		emit_signal("open_item_menu")
