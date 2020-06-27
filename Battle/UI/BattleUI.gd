@@ -113,9 +113,9 @@ func open_battle_won_screen() -> void:
 # handling attacks
 
 func _player_attack_selected(attack : Attack) -> void:
-	player_attacks.append(attack)
-	# todo: handle fainted party members
-	if len(player_attacks) == len(Player.party):
+	if attack:
+		player_attacks.append(attack)
+	if len(player_attacks) == Player.num_living_members():
 		current_character.end_highlight()
 		_dispatch_attacks()
 	else:

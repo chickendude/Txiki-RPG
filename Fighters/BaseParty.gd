@@ -29,21 +29,11 @@ var equipped_armor = null
 
 # movement
 
-signal player_dead
 signal level_up
-signal hp_changed(old_hp, new_hp)
 
 func _ready():
 	equipped_armor = starting_armor
 	equipped_weapon = starting_weapon
-
-func _set_hp(_hp):
-	var old_hp = hp
-	hp = clamp(_hp, 0, max_hp)
-	if hp == 0:
-		emit_signal("player_dead")
-		Event.player_died()
-	emit_signal("hp_changed", old_hp, hp)
 
 func _set_xp(_xp):
 	xp = _xp

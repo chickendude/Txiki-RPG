@@ -20,9 +20,11 @@ export var v_frames = 1
 
 var alive = true
 
-signal died
 
 var combo = [] # ?? perhaps not needed anymore ??
+
+signal died
+signal hp_changed(old_hp, new_hp)
 
 # setters
 
@@ -31,6 +33,7 @@ func _set_hp(_hp):
 	alive = hp > 0
 	if not alive:
 		emit_signal("died")
+	emit_signal("hp_changed", _hp, hp)
 
 func _set_mp(_mp):
 	mp = clamp(_mp, 0, max_mp)

@@ -53,6 +53,7 @@ func _add_party():
 	var party_size := len(Player.party)
 	for i in range(party_size):
 		var character = Player.party[i]
+		character.connect('died', self, '_on_character_died')
 		var member = Fighter.instance()
 		var y = (screen_h - party_size * PLAYER_H) / 2 + PLAYER_H * i + PLAYER_H / 2
 		member.stats = character
@@ -164,6 +165,10 @@ func _enemies_left() -> bool:
 		if monster_obj.alive:
 			return true
 	return false
+
+func _on_character_died() -> void:
+	if Player.num_living_members() == 0:
+		Event.party_died()
 
 func _battle_won():
 	ui.open_battle_won_screen()

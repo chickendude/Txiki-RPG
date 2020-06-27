@@ -57,3 +57,10 @@ func use_item(character : PartyMember, item_name : String) -> void:
 		else:
 			character.hp += item.hp
 			character.mp += item.mp
+
+func num_living_members() -> int:
+	var num = 0
+	for member in party:
+		if member.alive:
+			num += 1
+	return num

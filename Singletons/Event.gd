@@ -65,12 +65,13 @@ func open_menu():
 	print("open menu")
 	emit_signal("open_menu")
 
-func player_died():
+func party_died():
 	load_map("HouseYuji", 18, 2, false)
 	yield(self, "_map_loaded")
 	Player.sils /= 2
-	Player.hp = Player.max_hp
-	Player.mp = Player.max_mp
+	for member in Player.party:
+		member.hp = member.max_hp
+		member.mp = member.max_mp
 	display_text("Yuji", "I should really be more careful next time...")
 
 func display_text(name, text):
