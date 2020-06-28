@@ -16,7 +16,7 @@ func _ready():
 	queue_free()
 
 func set_amt(amt):
-	text = str(amt)
+	text = str(amt) if amt > 0 else "miss"
 
 func set_direction(direction):
 	start_pos = Vector2(rand_range(1, -1), rand_range(1, -1))
