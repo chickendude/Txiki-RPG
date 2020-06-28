@@ -3,7 +3,6 @@
 [ext_resource path="res://data/ui/stats_box.png" type="Texture" id=1]
 [ext_resource path="res://Battle/UI/StatsBox.gd" type="Script" id=2]
 
-
 [sub_resource type="DynamicFontData" id=1]
 antialiased = false
 font_path = "res://data/ui/dogica.ttf"

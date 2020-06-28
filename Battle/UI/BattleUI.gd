@@ -33,8 +33,7 @@ func _ready() -> void:
 	item_menu.connect("close_menu", self, "open_battle_menu")
 	item_menu.connect("item_selected", self, "_on_item_selected")
 
-func _unhandled_key_input(event) -> void:
-#func _input(delta):
+func _input(event):
 	if not starting_keys_released:
 		_check_all_keys_released()
 	elif current_menu and current_menu.has_method("input"):
@@ -48,6 +47,7 @@ func load_battle_ui(_party : Array, _monsters : Array):
 func reload_battle_ui():
 	current_character = party[0]
 	current_character.start_highlight()
+	yield(get_tree(), "idle_frame")
 	_open_battle_menu()
 
 func set_current_menu(menu : Control) -> void:
@@ -77,10 +77,10 @@ func _check_all_keys_released():
 			starting_keys_released = false
 
 func _load_next_character():
-	# todo: handle fainted characters and move _dispatch_attacks call here
 	var index = party.find(current_character)
 	current_character.end_highlight()
 	current_character = party[index + 1]
+	stats.focus_player(current_character.stats)
 	current_character.start_highlight()
 	if not current_character.alive:
 		_player_attack_selected(null)
@@ -92,18 +92,16 @@ func _close_menu() -> void:
 	current_menu = null
 
 func _open_attack_menu() -> void:
-#	_load_next_character()
 	attack_menu.load_attack_container(current_character, monsters)
 	self.current_menu = attack_menu
 
 func _open_item_menu() -> void:
-#	_load_next_character()
 	item_menu.character = current_character
 	item_menu.load_items()
 	self.current_menu = item_menu
 
 func _open_battle_menu() -> void:
-#	_load_next_character()
+	stats.focus_player(current_character.stats)
 	self.current_menu = battle_menu
 
 func open_battle_won_screen() -> void:
@@ -124,6 +122,7 @@ func _player_attack_selected(attack : Attack) -> void:
 		_open_battle_menu()
 
 func _dispatch_attacks() -> void:
+	stats.unfocus()
 	_close_menu()
 	enemy_attacks = _enemy_attacks()
 	emit_signal("all_attacks_selected", player_attacks, enemy_attacks, player_items)
