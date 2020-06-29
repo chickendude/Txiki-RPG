@@ -12,6 +12,8 @@ onready var spirit_rect = $SpiritRect
 
 var starting_color : Color
 
+
+signal back_button
 signal open_attack_menu
 signal open_item_menu
 #signal open_magic_menu
@@ -22,7 +24,7 @@ func _ready():
 func input(_event):
 	accept_event()
 	if Input.is_action_just_pressed("ui_cancel"):
-		Event.end_battle()
+		emit_signal("back_button")
 	if Input.is_action_pressed("battle_attack"):
 		_highlight_button(attack_rect)
 	elif Input.is_action_pressed("battle_item"):

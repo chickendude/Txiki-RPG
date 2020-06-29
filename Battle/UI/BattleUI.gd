@@ -28,6 +28,7 @@ func _ready() -> void:
 	self.current_menu = battle_menu
 	battle_menu.connect("open_attack_menu", self, "_open_attack_menu")
 	battle_menu.connect("open_item_menu", self, "_open_item_menu")
+	battle_menu.connect("back_button", self, "_load_previous_character")
 	attack_menu.connect("back_button", self, "_open_battle_menu")
 	attack_menu.connect("attack_selected", self, "_player_attack_selected")
 	item_menu.connect("close_menu", self, "open_battle_menu")
@@ -76,14 +77,31 @@ func _check_all_keys_released():
 		if Input.is_action_pressed(key):
 			starting_keys_released = false
 
+func _load_character(new_index : int) -> void:
+	current_character.end_highlight()
+	current_character = party[new_index]
+	current_character.start_highlight()
+	stats.focus_player(current_character.stats)
+
 func _load_next_character():
 	var index = party.find(current_character)
-	current_character.end_highlight()
-	current_character = party[index + 1]
-	stats.focus_player(current_character.stats)
-	current_character.start_highlight()
+	_load_character(index + 1)
 	if not current_character.alive:
 		_player_attack_selected(null)
+
+func _load_previous_character():
+	var _e = player_attacks.pop_front()
+	var index = party.find(current_character) - 1
+	while not party[index].alive and index > 0:
+		index -= 1
+	if index < 0:
+		_flee()
+	else:
+		_load_character(index)
+		_open_battle_menu()
+
+func _flee():
+	Event.end_battle()
 
 # menu functions
 
