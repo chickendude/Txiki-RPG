@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/testfont_0.png-637ff633eb86e3786f191b1568ed0aa0.stex"
+path="res://.import/txikirpg.png-89eda069cf99343ac0ac2d1f47f90f30.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://data/ui/testfont_0.png"
-dest_files=[ "res://.import/testfont_0.png-637ff633eb86e3786f191b1568ed0aa0.stex" ]
+source_file="res://data/ui/txikirpg.png"
+dest_files=[ "res://.import/txikirpg.png-89eda069cf99343ac0ac2d1f47f90f30.stex" ]
 
 [params]
 
