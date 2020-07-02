@@ -1,0 +1,83 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Battle/UI/CharacterStats.gd" type="Script" id=1]
+[ext_resource path="res://data/ui/txikirpg.fnt" type="BitmapFont" id=2]
+
+[sub_resource type="DynamicFontData" id=1]
+antialiased = false
+font_path = "res://data/ui/dogica.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 8
+extra_spacing_bottom = 1
+font_data = SubResource( 1 )
+
+[node name="CharacterStats" type="HBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 0.092
+margin_left = 43.0
+margin_right = -66.0
+margin_bottom = -0.0800018
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+
+[node name="NameLabel" type="Label" parent="."]
+margin_top = 7.0
+margin_right = 17.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 2 )
+text = "Yuji"
+
+[node name="XPLeftLabel" type="Label" parent="."]
+margin_left = 21.0
+margin_top = 7.0
+margin_right = 153.0
+margin_bottom = 13.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "250"
+align = 2
+
+[node name="NotLevelUpLabel" type="Label" parent="."]
+margin_left = 157.0
+margin_top = 7.0
+margin_right = 180.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 2 )
+custom_constants/line_spacing = 0
+text = "XP to"
+
+[node name="LevelUpLabel" type="Label" parent="."]
+visible = false
+margin_left = 108.0
+margin_top = 7.0
+margin_right = 180.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Level Up!"
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 184.0
+margin_top = 7.0
+margin_right = 198.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "lvl"
+
+[node name="NextLevelLabel" type="Label" parent="."]
+margin_left = 202.0
+margin_top = 7.0
+margin_right = 211.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "18"
+
+[node name="Tween" type="Tween" parent="."]

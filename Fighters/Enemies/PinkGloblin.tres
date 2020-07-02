@@ -3,7 +3,6 @@
 [ext_resource path="res://Fighters/BaseEnemy.gd" type="Script" id=1]
 [ext_resource path="res://data/enemies/pink_globlin.png" type="Texture" id=2]
 
-
 [resource]
 resource_local_to_scene = true
 script = ExtResource( 1 )
@@ -13,15 +12,15 @@ hp = 200
 max_mp = 0
 mp = 0
 level = 0
-attack_ud = 0
-attack_lr = 0
-defense_u = 0
-defense_d = 0
+attack = 0
+defense = 0
+immune_locations = ""
 intelligence = 0
 speed = 0
 sprite = ExtResource( 2 )
 h_frames = 1
 v_frames = 5
-xp = 0
+xp = 80
 sils = 0
+Combos = [  ]
 items = [  ]

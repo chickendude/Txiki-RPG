@@ -42,7 +42,7 @@ func _input(event):
 
 func load_battle_ui(_party : Array, _monsters : Array):
 	party = _party
-	monsters = _monsters
+	self.monsters = _monsters
 	reload_battle_ui()
 
 func reload_battle_ui():

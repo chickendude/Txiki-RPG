@@ -66,7 +66,9 @@ func _all_attacks_selected(player_attacks : Array, enemy_attacks : Array, player
 	attacks += enemy_attacks
 	attacks.sort_custom(self, "_sort_by_speed")
 	_use_items(player_items)
-	_process_attacks(attacks)
+#	_process_attacks(attacks)
+	_battle_won()
+
 	
 func _sort_by_speed(a, b):
 	return a.speed > b.speed

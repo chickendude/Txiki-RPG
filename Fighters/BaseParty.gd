@@ -29,19 +29,19 @@ var equipped_armor = null
 
 # movement
 
-signal level_up
+signal level_up(member)
 
 func _ready():
 	equipped_armor = starting_armor
 	equipped_weapon = starting_weapon
 
 func _set_xp(_xp):
-	xp = _xp
-	var next_level_xp = _next_level_xp()
-	while xp >= next_level_xp:
-		_level_up(next_level_xp)
+	xp = int(_xp)
+	while xp >= _next_level_xp():
+		_level_up()
 
-func _level_up(next_level_xp) -> void:
+func _level_up() -> void:
+	var next_level_xp := _next_level_xp()
 	total_xp += next_level_xp
 	xp -= next_level_xp
 	level += 1
@@ -51,7 +51,7 @@ func _level_up(next_level_xp) -> void:
 	defense += 2
 	speed += 2
 	attack_bar += 4.5
-	emit_signal("level_up")
+	emit_signal("level_up", self)
 
 func _next_level_xp() -> int:
 	var lvl = level + 2

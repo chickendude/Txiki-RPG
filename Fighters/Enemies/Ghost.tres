@@ -3,7 +3,6 @@
 [ext_resource path="res://Fighters/BaseEnemy.gd" type="Script" id=1]
 [ext_resource path="res://data/enemies/ghost.png" type="Texture" id=2]
 
-
 [resource]
 resource_local_to_scene = true
 script = ExtResource( 1 )
@@ -21,7 +20,7 @@ speed = 0
 sprite = ExtResource( 2 )
 h_frames = 3
 v_frames = 1
-xp = 0
-sils = 0
+xp = 50
+sils = 30
 Combos = [  ]
 items = [  ]

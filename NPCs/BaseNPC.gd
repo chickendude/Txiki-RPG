@@ -12,6 +12,7 @@ var player_looking = false
 
 func _ready():
 	interaction_area.connect("area_entered", self, "_player_entered")
+	interaction_area.connect("area_exited", self, "_player_exited")
 
 func _unhandled_key_input(_event):
 	if player_looking and Input.is_action_just_pressed("ui_accept"):
