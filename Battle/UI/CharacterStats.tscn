@@ -18,17 +18,18 @@ __meta__ = {
 
 [node name="NameLabel" type="Label" parent="."]
 margin_top = 7.0
-margin_right = 87.0
+margin_right = 65.0
 margin_bottom = 13.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 2 )
 text = "Yuji"
 
 [node name="LevelUpLabel" type="Label" parent="."]
-margin_left = 91.0
+margin_left = 69.0
 margin_top = 7.0
 margin_right = 134.0
 margin_bottom = 13.0
+size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Level Up!"

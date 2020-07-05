@@ -92,25 +92,23 @@ func _target_keys():
 	elif Input.is_action_just_pressed("ui_accept"):
 		_attack_selected()
 	else:
+		var direction = 1
 		if Input.is_action_just_pressed("ui_down"):
 			target_index += 1
 		if Input.is_action_just_pressed("ui_up"):
 			target_index -= 1
+			direction = -1
 		target_index = clamp(target_index, 0, len(monsters) - 1)
-		_highlight_target()
+		_highlight_target(direction)
 
 func _close_menu():
 	select_target = false
 	_clear_highlight()
 	emit_signal("back_button")
 
-func _highlight_target():
+func _highlight_target(direction = 1):
 	while not monsters[target_index].alive:
-		target_index += 1
-		if target_index >= len(monsters):
-			target_index = 0
-		else:
-			target_index = min(len(monsters) - 1, target_index)
+		target_index = (target_index + direction) % len(monsters)
 	_clear_highlight()
 	monsters[target_index].modulate = Color(.2, .1, .5, .7)
 
