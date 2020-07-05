@@ -1,5 +1,7 @@
 extends HBoxContainer
 
+const HPNode = preload("res://Battle/Effects/HPNode.tscn")
+
 onready var sprite = $Sprite
 onready var character_name = $NameLabel
 onready var xp_left = $XPLeftLabel
@@ -30,3 +32,4 @@ func update_xp(_xp):
 		character.xp += _xp - added_xp
 		added_xp = _xp
 		next_level.text = str(character.level + 1)
+		level_up_label.show()
