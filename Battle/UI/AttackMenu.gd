@@ -107,17 +107,15 @@ func _close_menu():
 	emit_signal("back_button")
 
 func _highlight_target():
-	# check if the target has been queued to be freed, aka dead
-	var prev_target = monsters[prev_target_index]
-	if not prev_target or not prev_target.alive:
-		monsters.remove(prev_target_index)
+	while not monsters[prev_target_index].alive:
+		prev_target_index += 1
 		prev_target_index = min(len(monsters) - 1, prev_target_index)
 		target_index = prev_target_index
-	else:
-		prev_target.modulate = Color(1, 1, 1, 1)
+	var prev_target = monsters[prev_target_index]
+	prev_target.modulate = Color(1, 1, 1, 1)
 	prev_target_index = target_index
 	monsters[target_index].modulate = Color(.2, .1, .5, .7)
-	
+
 func _attack_selected():
 	select_target = false
 	monsters[target_index].modulate = Color(1, 1, 1, 1)
