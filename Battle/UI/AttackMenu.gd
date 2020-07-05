@@ -14,7 +14,6 @@ var char_info : PartyMember
 var attacks = []
 var select_target = false
 var attacks_preloaded = false
-var prev_target_index = 0
 var target_index = 0
 
 signal back_button
@@ -38,7 +37,6 @@ func load_attack_container(_character : Fighter, _monsters : Array) -> void:
 	for atk in char_info.prev_attacks:
 		_add_attack(atk)
 	attacks_preloaded = true
-	prev_target_index = character.prev_target_index
 	target_index = character.prev_target_index
 	var screen_w = ProjectSettings.get_setting("display/window/size/width")
 	attack_container.rect_position.x = screen_w / 2 - char_info.attack_bar / 2 - PADDING
@@ -103,24 +101,24 @@ func _target_keys():
 
 func _close_menu():
 	select_target = false
-	monsters[prev_target_index].modulate = Color(1, 1, 1, 1)
+	_clear_highlight()
 	emit_signal("back_button")
 
 func _highlight_target():
-	while not monsters[prev_target_index].alive:
-		prev_target_index += 1
-		prev_target_index = min(len(monsters) - 1, prev_target_index)
-		target_index = prev_target_index
-	var prev_target = monsters[prev_target_index]
-	prev_target.modulate = Color(1, 1, 1, 1)
-	prev_target_index = target_index
+	while not monsters[target_index].alive:
+		target_index += 1
+		target_index = min(len(monsters) - 1, target_index)
+	_clear_highlight()
 	monsters[target_index].modulate = Color(.2, .1, .5, .7)
+
+func _clear_highlight():
+	for monster in monsters:
+		monster.modulate = Color(1, 1, 1, 1)
 
 func _attack_selected():
 	select_target = false
-	monsters[target_index].modulate = Color(1, 1, 1, 1)
-	monsters[prev_target_index].modulate = Color(1, 1, 1, 1)
-	character.prev_target_index = prev_target_index
+	_clear_highlight()
+	character.prev_target_index = target_index
 	var monster = monsters[target_index]
 	var attack = Attack.new()
 	attack.attacks = attacks
@@ -132,5 +130,4 @@ func _attack_selected():
 		if i != target_index:
 			attack.targets.append(monsters[i])
 	char_info.prev_attacks = attacks
-	print("attacking " + monster.stats.name + " with hp: " + str(monster.stats.hp))
 	emit_signal("attack_selected", attack)
