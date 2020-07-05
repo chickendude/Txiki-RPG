@@ -1,8 +1,9 @@
 extends Control
 
-onready var xp_label = $NinePatchRect/VBoxContainer/HBoxContainer/XPLabel
 onready var sil_label = $NinePatchRect/VBoxContainer/HBoxContainer2/SilLabel
+onready var tween = $Tween
 onready var vbox_container = $NinePatchRect/VBoxContainer
+onready var xp_label = $NinePatchRect/VBoxContainer/HBoxContainer/XPLabel
 
 const CharacterStats = preload("res://Battle/UI/CharacterStats.tscn")
 
@@ -33,9 +34,18 @@ func load_prizes(_xp : int, sils : int) -> void:
 
 func _add_xp():
 	added_xp = true
+	tween.interpolate_method(self, '_update_xp', 0, xp, 2, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
+	tween.start()
+	tween.connect("tween_completed", self, '_update_xp_complete')
+
+func _update_xp(_xp):
 	for character_stats in all_character_stats:
 		if character_stats.character.alive:
-			character_stats.load_xp(xp)
+			character_stats.update_xp(_xp)
+
+func _update_xp_complete(_obj, _key):
+#	character.xp += total_xp - added_xp
+	pass
 
 func _on_level_up(member : PartyMember):
 	pass

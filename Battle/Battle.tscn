@@ -506,6 +506,8 @@ custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "sils"
 
+[node name="Tween" type="Tween" parent="BattleUI/BattleWon"]
+
 [node name="Stats" type="Control" parent="BattleUI"]
 anchor_right = 1.0
 anchor_bottom = 1.0
