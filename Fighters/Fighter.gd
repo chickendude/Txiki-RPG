@@ -34,7 +34,7 @@ func _ready():
 func _on_died():
 	print("Oh no, hil naiz :'(")
 	alive = false
-	visible = false
+#	visible = false
 
 func move_to(destination):
 	tween.interpolate_property(self, "position", position, destination, .6, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)

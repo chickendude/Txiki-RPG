@@ -114,41 +114,43 @@ func _execute_attacks(attacker : Fighter, target : Fighter, attacks : Array):
 	# todo: add animations
 	var attacks_in_combo := []
 	var text_direction := -1
+	# todo: handle attacking enemy after enemy has died
+	# if target.stats.alive: ...
 	for attack in attacks:
-		if target.stats.alive:
-			var num_hits = 1 # only hit once by default
-			var atk_power : int
-			var stats = attacker.stats
-			# todo: unify attack stat and add in equipment bonus
-			atk_power = stats.get_attack(attack)
-			attacks_in_combo.append(attack)
-			var combo = _check_combo(stats, attacks_in_combo)
-			if combo:
-				if not combo.name in stats.combos_learned:
-					stats.combos_learned.append(combo.name)
-					yield(new_combo.play_animation(), "completed")
-				var combo_node = DamageNode.instance()
-				combo_node.position = Vector2(target.position.x - randi() % 6, target.position.y  - randi() % 6 - 34)
-				combo_node.set_text(combo.name)
-				add_child(combo_node)
-				atk_power *= combo.power
-				num_hits = combo.num_hits
-			yield(_attack_target(target, attacker, atk_power, attack, num_hits, text_direction), "completed")
-			yield(get_tree().create_timer(.4), "timeout")
-			text_direction *= pow(-1, num_hits)
+		var num_hits = 1 # only hit once by default
+		var atk_power : int
+		var stats = attacker.stats
+		# todo: unify attack stat and add in equipment bonus
+		atk_power = stats.get_attack(attack)
+		attacks_in_combo.append(attack)
+		var combo = _check_combo(stats, attacks_in_combo)
+		if combo:
+			if not combo.name in stats.combos_learned:
+				stats.combos_learned.append(combo.name)
+				yield(new_combo.play_animation(), "completed")
+			var combo_node = DamageNode.instance()
+			combo_node.position = Vector2(target.position.x - randi() % 6, target.position.y  - randi() % 6 - 34)
+			combo_node.set_text(combo.name)
+			add_child(combo_node)
+			atk_power *= combo.power
+			num_hits = combo.num_hits
+		yield(_attack_target(target, attacker, atk_power, attack, num_hits, text_direction), "completed")
+		yield(get_tree().create_timer(.4), "timeout")
+		text_direction *= pow(-1, num_hits)
+	if not target.stats.alive:
+		target.hide()
 
 func _attack_target(target : Fighter, attacker : Fighter, atk_power : int, atk_location : int, num_hits : int, text_direction : int):
 	for _i in range(num_hits):
-		if target.stats.alive:
-			var damage = target.stats.receive_attack(atk_power, attacker.stats.level, atk_location)
-			# show a little text with the damage amount
-			var damage_node = DamageNode.instance()
-			damage_node.position = Vector2(target.position.x - randi() % 6, target.position.y  - randi() % 6 - 24)
-			damage_node.set_amt(damage)
-			damage_node.set_direction(text_direction)
-			add_child(damage_node)
-			yield(get_tree().create_timer(.2), "timeout")
-			text_direction *= -1
+		var damage = target.stats.receive_attack(atk_power, attacker.stats.level, atk_location)
+		# show a little text with the damage amount
+		var damage_node = DamageNode.instance()
+		damage_node.position = Vector2(target.position.x - randi() % 6, target.position.y  - randi() % 6 - 24)
+		damage_node.set_amt(damage)
+		damage_node.set_direction(text_direction)
+		add_child(damage_node)
+		yield(get_tree().create_timer(.2), "timeout")
+		text_direction *= -1
 
 func _check_combo(stats : BaseFighter, attacks_in_combo : Array):
 	var combo_letters = ""
