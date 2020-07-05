@@ -42,9 +42,6 @@ func move_to(destination):
 	yield(tween, "tween_completed")
 	emit_signal("destination_reached")
 
-func _tween_completed(_obj, _key):
-	emit_signal("destination_reached")
-
 func start_highlight():
 	cursor.visible = true
 	animation_player.play("Blink")

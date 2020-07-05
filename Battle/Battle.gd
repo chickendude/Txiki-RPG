@@ -40,7 +40,7 @@ func _add_monsters():
 
 func _get_monster_position(index : int) -> Vector2:
 	var num_monsters = len(monsters)
-	var starting_y = screen_h / 2 - num_monsters * Y_SPACING / 2 + Y_SPACING / 2
+	var starting_y = screen_h / 2.0 - num_monsters * Y_SPACING / 2 + Y_SPACING / 2.0
 	var x
 	if num_monsters <= 2:
 		x = X1
@@ -55,7 +55,7 @@ func _add_party():
 		var character = Player.party[i]
 		character.connect('died', self, '_on_character_died')
 		var member = Fighter.instance()
-		var y = (screen_h - party_size * PLAYER_H) / 2 + PLAYER_H * i + PLAYER_H / 2
+		var y = (screen_h - party_size * PLAYER_H) / 2.0 + PLAYER_H * i + PLAYER_H / 2.0
 		member.stats = character
 		member.position = Vector2(PLAYER_X, y)
 		add_child(member)
@@ -66,8 +66,7 @@ func _all_attacks_selected(player_attacks : Array, enemy_attacks : Array, player
 	attacks += enemy_attacks
 	attacks.sort_custom(self, "_sort_by_speed")
 	_use_items(player_items)
-#	_process_attacks(attacks)
-	_battle_won()
+	_process_attacks(attacks)
 
 	
 func _sort_by_speed(a, b):
@@ -140,7 +139,7 @@ func _execute_attacks(attacker : Fighter, target : Fighter, attacks : Array):
 
 func _attack_target(target : Fighter, attacker : Fighter, atk_power : int, atk_location : int, num_hits : int, text_direction : int):
 	for _i in range(num_hits):
-		if target.stats.hp:
+		if target.stats.alive:
 			var damage = target.stats.receive_attack(atk_power, attacker.stats.level, atk_location)
 			# show a little text with the damage amount
 			var damage_node = DamageNode.instance()

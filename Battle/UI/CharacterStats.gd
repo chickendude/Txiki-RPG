@@ -25,7 +25,6 @@ func load_character(_character : PartyMember) -> void:
 	starting_level = character.level
 
 func update_xp(_xp):
-	var next_lev = character.xp_until_next_level()
 	var next_lev_xp = character.xp_until_next_level() - (_xp - added_xp)
 	next_lev_xp = max(next_lev_xp, 0)
 	xp_left.text = str(int(next_lev_xp))

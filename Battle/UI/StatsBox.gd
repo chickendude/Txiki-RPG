@@ -10,7 +10,7 @@ func load_character(_character : PartyMember):
 	var index = Player.party.find(_character)
 
 	var screen_w = ProjectSettings.get_setting("display/window/size/width")
-	position.x = (screen_w - party_size * WIDTH) / 2 + index * WIDTH + WIDTH/2 # WIDTH / 2 is because the position is based in the center
+	position.x = (screen_w - party_size * WIDTH) / 2.0 + index * WIDTH + WIDTH / 2.0 # WIDTH / 2 is because the position is based in the center
 	position.y = Y
 	
 	character = _character

@@ -23,7 +23,7 @@ var alive = true
 
 var combo = [] # ?? perhaps not needed anymore ??
 
-signal died
+signal died()
 signal hp_changed(old_hp, new_hp)
 
 # setters

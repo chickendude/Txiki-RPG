@@ -15,7 +15,7 @@ func _ready():
 func focus_player(character : PartyMember):
 	var index := Player.party.find(character)
 	for i in range(len(stat_boxes)):
-		var alpha = 1 if i == index else TRANSPARENT
+		var alpha = 1.0 if i == index else TRANSPARENT
 		stat_boxes[i].modulate = Color(1, 1, 1, alpha)
 
 func unfocus():
