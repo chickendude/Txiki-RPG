@@ -107,7 +107,10 @@ func _close_menu():
 func _highlight_target():
 	while not monsters[target_index].alive:
 		target_index += 1
-		target_index = min(len(monsters) - 1, target_index)
+		if target_index >= len(monsters):
+			target_index = 0
+		else:
+			target_index = min(len(monsters) - 1, target_index)
 	_clear_highlight()
 	monsters[target_index].modulate = Color(.2, .1, .5, .7)
 
